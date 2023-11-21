@@ -67,3 +67,11 @@ def user_hit():
     hit_card = draw_card()
     user_hand.append(hit_card)
     print(hit_card)
+
+def dealer_hit():
+    """
+    Hit the dealer with another card
+    """
+    hit_card = draw_card()
+    dealer_hand.append(hit_card)
+    print(hit_card)
