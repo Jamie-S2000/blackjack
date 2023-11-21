@@ -115,12 +115,10 @@ def check_hand(player):
                 card_values_user.append(ace_value)
             else:
                 card_values_user.append(cards[0])
+
         user_total = sum(card_values_user)
-        if user_total > 21:
-            print("You are bust!")
-            return user_total
-        else:
-            return user_total
+        return user_total
+
     else:
         card_values_dealer = []
         for cards in hands['dealer']:
@@ -170,8 +168,10 @@ def compare_hands(user_total, dealer_total):
     winner = ""
     if user_total > 21:
         winner = 'dealer'
+        print("You went bust!")
     elif dealer_total > 21:
         winner = 'user'
+        print("The dealer went bust!")
     elif user_total > dealer_total:
         winner = 'user'
     else:
