@@ -174,8 +174,10 @@ def compare_hands(user_total, dealer_total):
         print("The dealer went bust!")
     elif user_total > dealer_total:
         winner = 'user'
+        print("You win!")
     else:
         winner = 'dealer'
+        print("The dealer wins!")
     return winner
 
 
@@ -184,10 +186,8 @@ def increase_score(winner):
     Increases the score of the winner
     """
     if winner == 'user':
-        print("You win!")
         scores['user'] += 1
     else:
-        print("The dealer wins!")
         scores['dealer'] += 1
 
     print(f"The current scores are: \nUser: {scores['user']} \nDealer: {scores['dealer']}")
