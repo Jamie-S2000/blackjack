@@ -161,10 +161,8 @@ def checkHandDealer(hand):
         else:
             if sum(cardValues) + 11 > 21:
                 cardValues.append(1)
-                print("The dealer chose for the Ace to equal 1")
             else:
                 cardValues.append(11)
-                print("The dealer chose for the Ace to equal 11") 
     total = sum(cardValues)
     return total
 
