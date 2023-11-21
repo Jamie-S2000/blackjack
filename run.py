@@ -87,6 +87,23 @@ def start_game():
     build_deck()
 
 
+def user_choice():
+    """
+    Gives user the choice to hit or stick
+    """
+    global user_hand
+    choice = input("Would you like to hit or stick? (h/s)").lower()
+    if choice == 'h':
+        print("You chosen to hit")
+        user_hit()
+        check_hand(user_hand)
+    elif choice == 's':
+        print("You have chosen to stick")
+    else:
+        print("Please choose either hit (h) or stick (s)")
+        user_choice()
+
+
 def main():
     start_game()
     deal_user()
