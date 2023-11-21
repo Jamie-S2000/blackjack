@@ -162,7 +162,6 @@ def dealer_choice(user_total):
             hit("dealer")
             card_total = check_hand("dealer")
             if card_total is True:
-                print("The dealer is busticated!")
                 return False
         print("The dealer chose to stick")
         print(f"The dealer's hand is {hands['dealer']}")
