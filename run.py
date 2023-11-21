@@ -1,10 +1,9 @@
 """
 BlackJack
 """
-# Imports
 import random
 
-# Global variables
+
 deck = []
 hands = {
     'user': [],
@@ -40,6 +39,27 @@ def draw_card():
     return card
 
 
+def start_game():
+    """
+    Starts the game
+    """
+    if not deck:
+        print("Welcome to\n")
+        print(".------..------..------..------..------..------..------..------..------.")
+        print("|B.--. ||L.--. ||A.--. ||C.--. ||K.--. ||J.--. ||A.--. ||C.--. ||K.--. |")
+        print("| :(): || :/\: || (\/) || :/\: || :/\: || :(): || (\/) || :/\: || :/\: |")
+        print("| ()() || (__) || :\/: || :\/: || :\/: || ()() || :\/: || :\/: || :\/: |")
+        print("| '--'B|| '--'L|| '--'A|| '--'C|| '--'K|| '--'J|| '--'A|| '--'C|| '--'K|")
+        print("`------'`------'`------'`------'`------'`------'`------'`------'`------'\n")
+        input("Press enter to start")
+    deck.clear()
+    hands['user'].clear()
+    hands['dealer'].clear()
+    build_deck()
+    deal("user")
+    deal("dealer")
+
+
 def deal(player):
     """
     Deals two cards to the user and dealer
@@ -68,19 +88,6 @@ def hit(player):
         print(f"The dealer was dealt {card}")
         print(f"The dealer's hand is now {hands[player]}")
 
-
-def start_game():
-    """
-    Starts the game
-    """
-    if not deck:
-        input("Welcome to BlackJack! Press enter to start")
-    deck.clear()
-    hands['user'].clear()
-    hands['dealer'].clear()
-    build_deck()
-    deal("user")
-    deal("dealer")
 
 def user_choice():
     """
