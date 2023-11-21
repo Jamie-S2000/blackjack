@@ -85,7 +85,8 @@ def start_game():
     """
     input("Welcome to BlackJack! Press enter to start")
     build_deck()
-
+    deal_user()
+    deal_dealer()
 
 def user_choice():
     """
@@ -106,6 +107,5 @@ def user_choice():
 
 def main():
     start_game()
-    deal_user()
-    deal_dealer()
+    
     user_choice()
