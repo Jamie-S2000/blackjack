@@ -21,7 +21,6 @@ def buildDeck():
     Builds a deck of cards
     """
     global deck
-    deck.clear()
     suites = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
     for suite in suites:
         for i in range(2, 11):
@@ -78,6 +77,9 @@ def startGame():
     Starts the game
     """
     input("Welcome to BlackJack! Press enter to start")
+    deck.clear()
+    hands['user'].clear()
+    hands['dealer'].clear()
     buildDeck()
     deal("user")
     deal("dealer")
