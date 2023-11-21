@@ -215,6 +215,9 @@ def play_again():
 
 
 def main():
+    """
+    Runs the game
+    """
     start_game()
     user_choice()
     user_total = check_hand('user')
