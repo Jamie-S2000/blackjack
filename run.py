@@ -227,9 +227,11 @@ def playAgain():
 def main():
     startGame()
     userChoice()
-    dealerChoice()
     userTotal = checkHand('user')
+    dealerChoice(userTotal)
     dealerTotal = checkHand('dealer')
     winner = compareHands(userTotal, dealerTotal)
+    increaseScore(winner)
+    playAgain()
     
 main()
