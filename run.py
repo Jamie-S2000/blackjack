@@ -60,10 +60,10 @@ def deal_dealer():
     print(dealer_card1)
 
 
-def hit():
+def user_hit():
     """
     Hit the user with another card
     """
-    user_card = draw_card()
-    print(user_card)
-    return user_card
+    hit_card = draw_card()
+    user_hand.append(hit_card)
+    print(hit_card)
