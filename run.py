@@ -24,11 +24,11 @@ def build_deck():
     suites = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
     for suite in suites:
         for i in range(2, 11):
-            deck.append((suite, i))
-        deck.append((suite, 'Jack'))
-        deck.append((suite, 'Queen'))
-        deck.append((suite, 'King'))
-        deck.append((suite, 'Ace'))
+            deck.append((i, suite))
+        deck.append(('Jack', suite))
+        deck.append(('Queen', suite))
+        deck.append(('King', suite))
+        deck.append(('Ace', suite))
     return deck
 
 
@@ -120,13 +120,13 @@ def check_hand(hand):
     global user_hand
     card_values = []
     for cards in user_hand:
-        if cards[-1] in ['Jack', 'Queen', 'King']:
-            card_values.append(picture_cards_values[cards[-1]])
-        elif cards[-1] == 'Ace':
+        if cards[0] in ['Jack', 'Queen', 'King']:
+            card_values.append(picture_cards_values[cards[0]])
+        elif cards[0] == 'Ace':
             # ace choice value
             print("You have an ace!")
         else:
-            card_values.append(cards[-1])
+            card_values.append(cards[0])
     if sum(card_values) > 21:
         print("You are bust!")
         return True
@@ -140,7 +140,7 @@ def check_aces(hand):
     """
     card_values = []
     for cards in hand:
-        if cards[-1] in ["Ace"]:
+        if cards[0] in ["Ace"]:
             ace_value = input("You have an ace! Would you like it to be 1 or 11?")
             return ace_value
         else:
@@ -150,3 +150,5 @@ def check_aces(hand):
 def main():
     start_game()
     user_choice()
+
+main()
