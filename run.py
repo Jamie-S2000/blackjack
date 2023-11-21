@@ -86,14 +86,14 @@ def user_choice():
     """
     Gives user the choice to hit or stick
     """
-    choice = input("Would you like to hit or stick? (h/s)").lower()
+    choice = input("Would you like to hit or stick? (h/s) ").lower()
     if choice == 'h':
         while choice == 'h':
             print("You chose to hit")
             hit("user")
             if check_hand('user') > 21:
                 return check_hand('user')
-            choice = input("Would you like to hit or stick? (h/s)").lower()
+            choice = input("Would you like to hit or stick? (h/s) ").lower()
     elif choice == 's':
         print("You chose to stick")
     else:
@@ -141,7 +141,7 @@ def check_aces():
     """
     Checks the hand for aces
     """
-    ace_value = input("You have an ace! Would you like it to be 1 or 11?")
+    ace_value = input("You have an ace! Would you like it to be 1 or 11? ")
     while ace_value not in ['1', '11']:
         ace_value = input("Please choose either 1 or 11: ")
     return int(ace_value)
@@ -198,7 +198,7 @@ def play_again():
     """
     Asks the user if they want to play again
     """
-    play = input("Would you like to play again? (y/n)").lower()
+    play = input("Would you like to play again? (y/n) ").lower()
     while play not in ['y', 'n']:
         play = input("Please choose either y or n: ").lower()
     if play == 'y':
