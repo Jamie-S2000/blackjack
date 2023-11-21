@@ -20,3 +20,10 @@ def build_deck():
     return deck
 
 
+def draw_card():
+    global deck
+    card = random.choice(deck)
+    deck.remove(card)
+    print(card)
+    return card
+
