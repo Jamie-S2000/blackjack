@@ -58,7 +58,6 @@ def hit(player):
     """
     Hit the player with another card
     """
-    
     card = draw_card()
     hands[player].append(card)
     if player == "user":
@@ -73,7 +72,7 @@ def start_game():
     """
     Starts the game
     """
-    if deck == []:
+    if not deck:
         input("Welcome to BlackJack! Press enter to start")
     deck.clear()
     hands['user'].clear()
@@ -210,12 +209,13 @@ def play_again():
     Asks the user if they want to play again
     """
     play = input("Would you like to play again? (y/n)").lower()
-    if play == 'y':
-        main()
-    elif play == 'n':
-        print("Thanks for playing!")
-    else:
-        print("Please choose either y or n: ")
+    while play not in ['y', 'n']:
+        play = input("Please choose either y or n: ").lower()
+        if play == 'y':
+            main()
+        elif play == 'n':
+            print("Thanks for playing!")
+            exit()
 
 
 def main():
