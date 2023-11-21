@@ -6,16 +6,16 @@ import random
 
 # Global variables
 deck = []
-user_hand = []
-dealer_hand = []
-picture_cards_values = {
+userHand = []
+dealerHand = []
+pictureCardsValues = {
     'Jack': 10,
     'Queen': 10,
     'King': 10,
 }
 
 
-def build_deck():
+def buildDeck():
     """
     Builds a deck of cards
     """
@@ -32,7 +32,7 @@ def build_deck():
     return deck
 
 
-def draw_card():
+def drawCard():
     """
     Draws a card from the deck
     """
@@ -42,153 +42,154 @@ def draw_card():
     return card
 
 
-def deal_user():
+def dealUser():
     """
     Deal two cards to the user
     """
-    global user_hand
-    user_card1 = draw_card()
-    user_card2 = draw_card()
-    user_hand.append(user_card1)
-    user_hand.append(user_card2)
-    print(f"You were dealt {user_hand}")
+    global userHand
+    userCard1 = drawCard()
+    userCard2 = drawCard()
+    userHand.append(userCard1)
+    userHand.append(userCard2)
+    print(f"You were dealt {userHand}")
 
 
-def deal_dealer():
+def dealDealer():
     """
     Deal two cards to the dealer
     """
-    dealer_card1 = draw_card()
-    dealer_card2 = draw_card()
-    dealer_hand.append(dealer_card1)
-    dealer_hand.append(dealer_card2)
-    print(f"The dealer was delt {dealer_card1} and a hidden card")
+    dealerCard1 = drawCard()
+    dealerCard2 = drawCard()
+    dealerHand.append(dealerCard1)
+    dealerHand.append(dealerCard2)
+    print(f"The dealer was delt {dealerCard1} and a hidden card")
 
 
-def user_hit():
+def userHit():
     """
     Hit the user with another card
     """
-    hit_card = draw_card()
-    user_hand.append(hit_card)
-    print(f"You were delt {hit_card}")
-    print(f"Your hand is now {user_hand}")
+    hitCard = drawCard()
+    userHand.append(hitCard)
+    print(f"You were delt {hitCard}")
+    print(f"Your hand is now {userHand}")
 
-def dealer_hit():
+def dealerHit():
     """
     Hit the dealer with another card
     """
-    hit_card = draw_card()
-    dealer_hand.append(hit_card)
-    print(f"The dealer was delt {hit_card}")
-    print(f"The dealer's hand is now {dealer_hand}")
+    hitCard = drawCard()
+    dealerHand.append(hitCard)
+    print(f"The dealer was delt {hitCard}")
+    print(f"The dealer's hand is now {dealerHand}")
 
 
-def start_game():
+def startGame():
     """
     Starts the game
     """
     input("Welcome to BlackJack! Press enter to start")
-    build_deck()
-    deal_user()
-    deal_dealer()
+    buildDeck()
+    dealUser()
+    dealDealer()
 
-def user_choice():
+def userChoice():
     """
     Gives user the choice to hit or stick
     """
-    global user_hand
+    global userHand
     choice = input("Would you like to hit or stick? (h/s)").lower()
     if choice == 'h':
         while choice == 'h':
             print("You chose to hit")
-            user_hit()
-            if check_hand_user(user_hand):
+            userHit()
+            if checkHandUser(userHand):
                 break
             choice = input("Would you like to hit or stick? (h/s)").lower()
     elif choice == 's':
         print("You chose to stick")
     else:
         print("Please choose either hit (h) or stick (s)")
-        user_choice()
+        userChoice()
 
 
-def check_hand_user(hand):
+def checkHandUser(hand):
     """
     Checks the hand to see if it is over 21
     """
-    global user_hand
-    card_values = []
-    for cards in user_hand:
+    global userHand
+    cardValues = []
+    for cards in userHand:
         if cards[0] in ['Jack', 'Queen', 'King']:
-            card_values.append(picture_cards_values[cards[0]])
+            cardValues.append(pictureCardsValues[cards[0]])
         elif cards[0] == 'Ace':
             # ace choice value
             print("You have an ace!")
         else:
-            card_values.append(cards[0])
-    if sum(card_values) > 21:
+            cardValues.append(cards[0])
+    if sum(cardValues) > 21:
         print("You are bust!")
         return True
     else:
         return False
 
 
-def check_aces(hand):
+def checkAces(hand):
     """
     Checks the hand for aces
     """
-    card_values = []
+    cardValues = []
     for cards in hand:
         if cards[0] in ["Ace"]:
-            ace_value = input("You have an ace! Would you like it to be 1 or 11?")
-            return ace_value
+            aceValue = input("You have an ace! Would you like it to be 1 or 11?")
+            return aceValue
         else:
             None
 
 
-def check_hand_dealer(hand):
+def checkHandDealer(hand):
     """
     Checks dealer hand value
     """
-    global dealer_hand
-    card_values = []
-    for cards in dealer_hand:
+    global dealerHand
+    cardValues = []
+    for cards in dealerHand:
         if cards[0] in ['Jack', 'Queen', 'King']:
-            card_values.append(picture_cards_values[cards[0]])
+            cardValues.append(pictureCardsValues[cards[0]])
         elif cards[0] == 'Ace':
-            if sum(card_values) + 11 > 21:
-                card_values.append(1)
+            if sum(cardValues) + 11 > 21:
+                cardValues.append(1)
                 print("The dealer chose for the Ace to equal 1")
             else:
-                card_values.append(11)
+                cardValues.append(11)
                 print("The dealer chose for the Ace to equal 11")
         else:
-            card_values.append(cards[0])
-    total = sum(card_values)
+            cardValues.append(cards[0])
+    total = sum(cardValues)
     return total
 
 
-def dealer_choice():
+def dealerChoice():
     """
     Dealer chooses to hit or stick
     """
-    card_total = check_hand_dealer(dealer_hand)
-    while card_total < 17:
+    cardTotal = checkHandDealer(dealerHand)
+    while cardTotal < 17:
         print(f"The dealer chose to hit")
-        dealer_hit()
-        card_total = check_hand_dealer(dealer_hand)
-    if card_total > 21:
+        dealerHit()
+        cardTotal = checkHandDealer(dealerHand)
+    if cardTotal > 21:
         print("The dealer is bust!")
     else:
         print(f"The dealer chose to stick")
-        print(f"The dealer's hand is {dealer_hand}")
-        compare_hands()
+        print(f"The dealer's hand is {dealerHand}")
 
 
 def main():
-    start_game()
-    user_choice()
-    dealer_choice()
+    startGame()
+    userChoice()
+    dealerChoice()
 
 main()
+
+
