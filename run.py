@@ -64,6 +64,7 @@ def hit(player):
         print(f"You were dealt {card}")
         print(f"Your hand is now {hands[player]}")
     else:
+        print("The dealer chose to hit")
         print(f"The dealer was dealt {card}")
         print(f"The dealer's hand is now {hands[player]}")
 
@@ -90,8 +91,8 @@ def user_choice():
         while choice == 'h':
             print("You chose to hit")
             hit("user")
-            if check_hand('user') is True:
-                return True
+            if check_hand('user') > 21:
+                return check_hand('user')
             choice = input("Would you like to hit or stick? (h/s)").lower()
     elif choice == 's':
         print("You chose to stick")
@@ -117,26 +118,23 @@ def check_hand(player):
         user_total = sum(card_values_user)
         if user_total > 21:
             print("You are bust!")
-            return True
+            return user_total
         else:
             return user_total
     else:
         card_values_dealer = []
+        dealer_total = sum(card_values_dealer)
         for cards in hands['dealer']:
             if cards[0] in ['Jack', 'Queen', 'King']:
                 card_values_dealer.append(10)
             elif cards[0] in range(2, 11):
                 card_values_dealer.append(cards[0])
             else:
-                if sum(card_values_dealer) + 11 > 21:
+                if dealer_total + 11 > 21:
                     card_values_dealer.append(1)
                 else:
                     card_values_dealer.append(11)
-        if sum(card_values_dealer) > 21:
-            print("The dealer is bust!")
-            return True
-        else:
-            return sum(card_values_dealer)
+        return dealer_total
 
 
 def check_aces():
@@ -154,18 +152,15 @@ def dealer_choice(user_total):
     Dealer chooses to hit or stick
     """
     card_total = check_hand("dealer")
-    if user_total is True:
-        print("The dealer is bust!")
-        return False
-    else:
-        while isinstance(card_total, int) and card_total < 17:
-            hit("dealer")
-            card_total = check_hand("dealer")
-            if card_total is True:
-                return False
-        print("The dealer chose to stick")
-        print(f"The dealer's hand is {hands['dealer']}")
+    if card_total > 21:
         return card_total
+    while user_total <= 21 and card_total < 17:
+        hit("dealer")
+        card_total = check_hand("dealer")
+
+    print("The dealer chose to stick")
+    print(f"The dealer's hand is {hands['dealer']}")
+    return card_total
 
 
 def compare_hands(user_total, dealer_total):
@@ -173,9 +168,9 @@ def compare_hands(user_total, dealer_total):
     Compares the totals of the dealers hand and the players hand
     """
     winner = ""
-    if user_total is True:
+    if user_total > 21:
         winner = 'dealer'
-    elif dealer_total is True:
+    elif dealer_total > 21:
         winner = 'user'
     elif user_total > dealer_total:
         winner = 'user'
