@@ -160,14 +160,14 @@ def dealer_choice(user_total):
         return False
     else:    
         while card_total < 17:
-            print(f"The dealer chose to hit")
+            print("The dealer chose to hit")
             hit('dealer')
             card_total = check_hand('dealer')
         if card_total > 21:
             print("The dealer is bust!")
             return True
         else:
-            print(f"The dealer chose to stick")
+            print("The dealer chose to stick")
             print(f"The dealer's hand is {hands['dealer']}")
             return card_total
 
