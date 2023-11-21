@@ -197,7 +197,9 @@ def increase_score(winner):
     else:
         scores['dealer'] += 1
 
-    print(f"The current scores are: \nUser: {scores['user']} \nDealer: {scores['dealer']}\n")
+    print("The current scores are: \n")
+    print(f"User: {scores['user']}")
+    print(f"Dealer: {scores['dealer']}\n")
     play_again()
 
 
@@ -226,5 +228,6 @@ def main():
     dealer_total = check_hand('dealer')
     winner = compare_hands(user_total, dealer_total)
     increase_score(winner)
+
 
 main()
