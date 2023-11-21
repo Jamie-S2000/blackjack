@@ -6,6 +6,8 @@ import random
 
 # Global variables
 deck = []
+user_hand = []
+dealer_hand = []
 
 
 def build_deck():
@@ -34,14 +36,18 @@ def draw_card():
     deck.remove(card)
     return card
 
+
 def deal_user():
     """
     Deal two cards to the user
     """
+    global user_hand
     user_card1 = draw_card()
     user_card2 = draw_card()
-    print(user_card1, user_card2)
-    return [user_card1, user_card2]
+    user_hand.append(user_card1)
+    user_hand.append(user_card2)
+    print(user_hand)
+
 
 def deal_dealer():
     """
@@ -49,8 +55,10 @@ def deal_dealer():
     """
     dealer_card1 = draw_card()
     dealer_card2 = draw_card()
+    dealer_hand.append(dealer_card1)
+    dealer_hand.append(dealer_card2)
     print(dealer_card1)
-    return [dealer_card1, dealer_card2]
+
 
 def hit():
     """
