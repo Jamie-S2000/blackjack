@@ -94,7 +94,7 @@ def userChoice():
         while choice == 'h':
             print("You chose to hit")
             hit("user")
-            if checkHand('user'):
+            if checkHand('user') == True:
                 return True
                 break
             choice = input("Would you like to hit or stick? (h/s)").lower()
