@@ -156,15 +156,15 @@ def checkHandDealer(hand):
     for cards in dealerHand:
         if cards[0] in ['Jack', 'Queen', 'King']:
             cardValues.append(pictureCardsValues[cards[0]])
-        elif cards[0] == 'Ace':
+        elif cards[0] in range(2, 11):
+            cardValues.append(cards[0])
+        else:
             if sum(cardValues) + 11 > 21:
                 cardValues.append(1)
                 print("The dealer chose for the Ace to equal 1")
             else:
                 cardValues.append(11)
-                print("The dealer chose for the Ace to equal 11")
-        else:
-            cardValues.append(cards[0])
+                print("The dealer chose for the Ace to equal 11") 
     total = sum(cardValues)
     return total
 
