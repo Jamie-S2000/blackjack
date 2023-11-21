@@ -51,7 +51,7 @@ def start_game():
         print("| ()() || (__) || :\/: || :\/: || :\/: || ()() || :\/: || :\/: || :\/: |")
         print("| '--'B|| '--'L|| '--'A|| '--'C|| '--'K|| '--'J|| '--'A|| '--'C|| '--'K|")
         print("`------'`------'`------'`------'`------'`------'`------'`------'`------'\n")
-        input("Press enter to start")
+        input("Press enter to start\n")
     deck.clear()
     hands['user'].clear()
     hands['dealer'].clear()
@@ -69,9 +69,9 @@ def deal(player):
     hands[player].append(card_1)
     hands[player].append(card_2)
     if player == "user":
-        print(f"You were dealt {card_1} and {card_2}")
+        print(f"You were dealt {card_1} and {card_2}\n")
     else:
-        print(f"The dealer was dealt {card_1} and a hidden card")
+        print(f"The dealer was dealt {card_1} and a hidden card\n")
 
 
 def hit(player):
@@ -81,12 +81,12 @@ def hit(player):
     card = draw_card()
     hands[player].append(card)
     if player == "user":
-        print(f"You were dealt {card}")
-        print(f"Your hand is now {hands[player]}")
+        print(f"You were dealt {card}\n")
+        print(f"Your hand is now {hands[player]}\n")
     else:
         print("The dealer chose to hit")
         print(f"The dealer was dealt {card}")
-        print(f"The dealer's hand is now {hands[player]}")
+        print(f"The dealer's hand is now {hands[player]}\n")
 
 
 def user_choice():
@@ -96,15 +96,15 @@ def user_choice():
     choice = input("Would you like to hit or stick? (h/s) ").lower()
     if choice == 'h':
         while choice == 'h':
-            print("You chose to hit")
+            print("You chose to hit\n")
             hit("user")
             if check_hand('user') > 21:
                 return check_hand('user')
-            choice = input("Would you like to hit or stick? (h/s) ").lower()
+            choice = input("Would you like to hit or stick? (h/s) \n").lower()
     elif choice == 's':
-        print("You chose to stick")
+        print("You chose to stick\n")
     else:
-        print("Please choose either hit (h) or stick (s)")
+        print("Please choose either hit (h) or stick (s) \n")
         user_choice()
 
 
@@ -146,9 +146,9 @@ def check_aces():
     """
     Checks the hand for aces
     """
-    ace_value = input("You have an ace! Would you like it to be 1 or 11? ")
+    ace_value = input("You have an ace! Would you like it to be 1 or 11? \n")
     while ace_value not in ['1', '11']:
-        ace_value = input("Please choose either 1 or 11: ")
+        ace_value = input("Please choose either 1 or 11: \n")
     return int(ace_value)
 
 
@@ -163,8 +163,8 @@ def dealer_choice(user_total):
         hit("dealer")
         card_total = check_hand("dealer")
 
-    print("The dealer chose to stick")
-    print(f"The dealer's hand is {hands['dealer']}")
+    print("The dealer chose to stick\n")
+    print(f"The dealer's hand is {hands['dealer']}\n")
     return card_total
 
 
@@ -197,7 +197,7 @@ def increase_score(winner):
     else:
         scores['dealer'] += 1
 
-    print(f"The current scores are: \nUser: {scores['user']} \nDealer: {scores['dealer']}")
+    print(f"The current scores are: \nUser: {scores['user']} \nDealer: {scores['dealer']}\n")
     play_again()
 
 
@@ -205,13 +205,13 @@ def play_again():
     """
     Asks the user if they want to play again
     """
-    play = input("Would you like to play again? (y/n) ").lower()
+    play = input("Would you like to play again? (y/n) \n").lower()
     while play not in ['y', 'n']:
-        play = input("Please choose either y or n: ").lower()
+        play = input("Please choose either y or n: \n").lower()
     if play == 'y':
         main()
     elif play == 'n':
-        print("Thanks for playing!")
+        print("Thanks for playing!\n")
         exit()
 
 
