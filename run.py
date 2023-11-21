@@ -16,7 +16,7 @@ scores = {
 }
 
 
-def buildDeck():
+def build_deck():
     """
     Builds a deck of cards
     """
@@ -32,7 +32,7 @@ def buildDeck():
     return deck
 
 
-def drawCard():
+def draw_card():
     """
     Draws a card from the deck
     """
@@ -47,14 +47,14 @@ def deal(player):
     Deals two cards to the user and dealer
     """
     global hands
-    card1 = drawCard()
-    card2 = drawCard()
-    hands[player].append(card1)
-    hands[player].append(card2)
+    card_1 = draw_card()
+    card_2 = draw_card()
+    hands[player].append(card_1)
+    hands[player].append(card_2)
     if player == "user":
-        print(f"You were dealt {card1} and {card2}")
+        print(f"You were dealt {card_1} and {card_2}")
     else:
-        print(f"The dealer was dealt {card1} and a hidden card")
+        print(f"The dealer was dealt {card_1} and a hidden card")
 
 
 def hit(player):
@@ -62,7 +62,7 @@ def hit(player):
     Hit the player with another card
     """
     global hands
-    card = drawCard()
+    card = draw_card()
     hands[player].append(card)
     if player == "user":
         print(f"You were dealt {card}")
@@ -72,7 +72,7 @@ def hit(player):
         print(f"The dealer's hand is now {hands[player]}")
 
 
-def startGame():
+def start_game():
     """
     Starts the game
     """
@@ -81,11 +81,11 @@ def startGame():
     deck.clear()
     hands['user'].clear()
     hands['dealer'].clear()
-    buildDeck()
+    build_deck()
     deal("user")
     deal("dealer")
 
-def userChoice():
+def user_choice():
     """
     Gives user the choice to hit or stick
     """
@@ -95,7 +95,7 @@ def userChoice():
         while choice == 'h':
             print("You chose to hit")
             hit("user")
-            if checkHand('user') == True:
+            if check_hand('user') == True:
                 return True
                 break
             choice = input("Would you like to hit or stick? (h/s)").lower()
@@ -103,91 +103,91 @@ def userChoice():
         print("You chose to stick")
     else:
         print("Please choose either hit (h) or stick (s)")
-        userChoice()
+        user_choice()
 
     
-def checkHand(player):
+def check_hand(player):
     """
     Checks hand to see if it is over 21
     """
     global hands
     if player == 'user':
-        cardValuesUser = []
+        card_values_user = []
         for cards in hands['user']:
             if cards[0] in ['Jack', 'Queen', 'King']:
-                cardValuesUser.append(10)
+                card_values_user.append(10)
             elif cards[0] == 'Ace':
-                aceValue = checkAces()
-                cardValuesUser.append(aceValue)
+                ace_value = check_aces()
+                card_values_user.append(ace_value)
             else:
-                cardValuesUser.append(cards[0])
-        userTotal = sum(cardValuesUser)
-        if userTotal > 21:
+                card_values_user.append(cards[0])
+        user_total = sum(card_values_user)
+        if user_total > 21:
             print("You are bust!")
             return True
         else:
-            return userTotal
+            return user_total
     else:
-        cardValuesDealer = []
+        card_values_dealer = []
         for cards in hands['dealer']:
             if cards[0] in ['Jack', 'Queen', 'King']:
-                cardValuesDealer.append(10)
+                card_values_dealer.append(10)
             elif cards[0] in range(2, 11):
-                cardValuesDealer.append(cards[0])
+                card_values_dealer.append(cards[0])
             else:
-                if sum(cardValuesDealer) + 11 > 21:
-                    cardValuesDealer.append(1)
+                if sum(card_values_dealer) + 11 > 21:
+                    card_values_dealer.append(1)
                 else:
-                    cardValuesDealer.append(11)
-        if sum(cardValuesDealer) > 21:
+                    card_values_dealer.append(11)
+        if sum(card_values_dealer) > 21:
             print("The dealer is bust!")
             return True
         else:
-            return sum(cardValuesDealer)
+            return sum(card_values_dealer)
 
 
-def checkAces():
+def check_aces():
     """
     Checks the hand for aces
     """
     
-    aceValue = input("You have an ace! Would you like it to be 1 or 11?")
-    while aceValue not in ['1', '11']:
-        aceValue = input("Please choose either 1 or 11: ")
-    return int(aceValue)
+    ace_value = input("You have an ace! Would you like it to be 1 or 11?")
+    while ace_value not in ['1', '11']:
+        ace_value = input("Please choose either 1 or 11: ")
+    return int(ace_value)
 
 
-def dealerChoice(userTotal):
+def dealer_choice(user_total):
     """
     Dealer chooses to hit or stick
     """
-    cardTotal = checkHand('dealer')
-    if userTotal == True:
+    card_total = check_hand('dealer')
+    if user_total == True:
         return False
     else:    
-        while cardTotal < 17:
+        while card_total < 17:
             print(f"The dealer chose to hit")
             hit('dealer')
-            cardTotal = checkHand('dealer')
-        if cardTotal > 21:
+            card_total = checkHand('dealer')
+        if card_total > 21:
             print("The dealer is bust!")
             return True
         else:
             print(f"The dealer chose to stick")
             print(f"The dealer's hand is {hands['dealer']}")
-            return cardTotal
+            return card_total
 
 
-def compareHands(userTotal, dealerTotal):
+def compare_hands(user_total, dealer_total):
     """
     Compares the totals of the dealers hand and the players hand
     """
     winner = ""
-    if userTotal == True:
+    if user_total == True:
         winner = 'dealer'
-    elif dealerTotal == True:
+    elif dealer_total == True:
         winner = 'user'
-    elif userTotal > dealerTotal:
+    elif user_total > dealer_total:
         winner = 'user'
     else:
         winner = 'dealer'
@@ -195,7 +195,7 @@ def compareHands(userTotal, dealerTotal):
     return winner
 
 
-def increaseScore(winner):
+def increase_score(winner):
     """
     Increases the score of the winner
     """
@@ -208,31 +208,31 @@ def increaseScore(winner):
         scores['dealer'] += 1
 
     print(f"The current scores are: \nUser: {scores['user']} \nDealer: {scores['dealer']}")
-    playAgain()
+    play_again()
 
 
-def playAgain():
+def play_again():
     """
     Asks the user if they want to play again
     """
-    playAgain = input("Would you like to play again? (y/n)").lower()
-    if playAgain == 'y':
+    play_again = input("Would you like to play again? (y/n)").lower()
+    if play_again == 'y':
         main()
-    elif playAgain == 'n':
+    elif play_again == 'n':
         print("Thanks for playing!")
     else:
         print("Please choose either y or n")
-        playAgain()
+        play_again()
 
 
 def main():
-    startGame()
-    userChoice()
-    userTotal = checkHand('user')
-    dealerChoice(userTotal)
-    dealerTotal = checkHand('dealer')
-    winner = compareHands(userTotal, dealerTotal)
-    increaseScore(winner)
-    playAgain()
+    start_game()
+    user_choice()
+    user_total = check_hand('user')
+    dealer_choice(user_total)
+    dealer_total = check_hand('dealer')
+    winner = compare_hands(user_total, dealer_total)
+    increase_score(winner)
+    play_again()
     
 main()
