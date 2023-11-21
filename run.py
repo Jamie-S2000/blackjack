@@ -27,3 +27,7 @@ def draw_card():
     print(card)
     return card
 
+def deal_user():
+    card1 = draw_card()
+    card2 = draw_card()
+    return [card1, card2]
