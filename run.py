@@ -8,6 +8,11 @@ import random
 deck = []
 user_hand = []
 dealer_hand = []
+picture_cards_values = {
+    'Jack': 10,
+    'Queen': 10,
+    'King': 10,
+}
 
 
 def build_deck():
@@ -106,6 +111,28 @@ def user_choice():
     else:
         print("Please choose either hit (h) or stick (s)")
         user_choice()
+
+
+def check_hand(hand):
+    """
+    Checks the hand to see if it is over 21
+    """
+    global user_hand
+    card_values = []
+    for cards in user_hand:
+        if cards[-1] in ['Jack', 'Queen', 'King']:
+            card_values.append(picture_cards_values[cards[-1]])
+        elif cards[-1] == 'Ace':
+            # ace choice value
+            print("You have an ace!")
+        else:
+            card_values.append(cards[-1])
+    if sum(card_values) > 21:
+        print("You are bust!")
+        return True
+    else:
+        return False
+
 
 
 def main():
