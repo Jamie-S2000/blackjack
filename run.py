@@ -6,8 +6,10 @@ import random
 
 # Global variables
 deck = []
-userHand = []
-dealerHand = []
+hands = {
+    'user': [],
+    'dealer': [],
+}
 pictureCardsValues = {
     'Jack': 10,
     'Queen': 10,
@@ -42,46 +44,34 @@ def drawCard():
     return card
 
 
-def dealUser():
+def deal(player):
     """
-    Deal two cards to the user
+    Deals two cards to the user and dealer
     """
-    global userHand
-    userCard1 = drawCard()
-    userCard2 = drawCard()
-    userHand.append(userCard1)
-    userHand.append(userCard2)
-    print(f"You were dealt {userHand}")
+    global hands
+    card1 = drawCard()
+    card2 = drawCard()
+    hands[player].append(card1)
+    hands[player].append(card2)
+    if player == "user":
+        print(f"You were dealt {card1} and {card2}")
+    else:
+        print(f"The dealer was dealt {card1} and a hidden card")
 
 
-def dealDealer():
+def hit(player):
     """
-    Deal two cards to the dealer
+    Hit the player with another card
     """
-    dealerCard1 = drawCard()
-    dealerCard2 = drawCard()
-    dealerHand.append(dealerCard1)
-    dealerHand.append(dealerCard2)
-    print(f"The dealer was delt {dealerCard1} and a hidden card")
-
-
-def userHit():
-    """
-    Hit the user with another card
-    """
-    hitCard = drawCard()
-    userHand.append(hitCard)
-    print(f"You were delt {hitCard}")
-    print(f"Your hand is now {userHand}")
-
-def dealerHit():
-    """
-    Hit the dealer with another card
-    """
-    hitCard = drawCard()
-    dealerHand.append(hitCard)
-    print(f"The dealer was delt {hitCard}")
-    print(f"The dealer's hand is now {dealerHand}")
+    global hands
+    card = drawCard()
+    hands[player].append(card)
+    if player == "user":
+        print(f"You were dealt {card}")
+        print(f"Your hand is now {hands[player]}")
+    else:
+        print(f"The dealer was dealt {card}")
+        print(f"The dealer's hand is now {hands[player]}")
 
 
 def startGame():
@@ -90,20 +80,20 @@ def startGame():
     """
     input("Welcome to BlackJack! Press enter to start")
     buildDeck()
-    dealUser()
-    dealDealer()
+    deal("user")
+    deal("dealer")
 
 def userChoice():
     """
     Gives user the choice to hit or stick
     """
-    global userHand
+    global hands
     choice = input("Would you like to hit or stick? (h/s)").lower()
     if choice == 'h':
         while choice == 'h':
             print("You chose to hit")
-            userHit()
-            if checkHandUser(userHand):
+            hit("user")
+            if checkHandUser(hands['user']):
                 break
             choice = input("Would you like to hit or stick? (h/s)").lower()
     elif choice == 's':
@@ -117,9 +107,9 @@ def checkHandUser(hand):
     """
     Checks the hand to see if it is over 21
     """
-    global userHand
+    global hands
     cardValues = []
-    for cards in userHand:
+    for cards in hands['user']:
         if cards[0] in ['Jack', 'Queen', 'King']:
             cardValues.append(pictureCardsValues[cards[0]])
         elif cards[0] == 'Ace':
@@ -151,9 +141,9 @@ def checkHandDealer(hand):
     """
     Checks dealer hand value
     """
-    global dealerHand
+    global hands
     cardValues = []
-    for cards in dealerHand:
+    for cards in hands['dealer']:
         if cards[0] in ['Jack', 'Queen', 'King']:
             cardValues.append(pictureCardsValues[cards[0]])
         elif cards[0] in range(2, 11):
@@ -171,16 +161,16 @@ def dealerChoice():
     """
     Dealer chooses to hit or stick
     """
-    cardTotal = checkHandDealer(dealerHand)
+    cardTotal = checkHandDealer(hands['dealer'])
     while cardTotal < 17:
         print(f"The dealer chose to hit")
-        dealerHit()
-        cardTotal = checkHandDealer(dealerHand)
+        hit('dealer')
+        cardTotal = checkHandDealer(hands['dealer'])
     if cardTotal > 21:
         print("The dealer is bust!")
     else:
         print(f"The dealer chose to stick")
-        print(f"The dealer's hand is {dealerHand}")
+        print(f"The dealer's hand is {hands['dealer']}")
 
 
 def main():
