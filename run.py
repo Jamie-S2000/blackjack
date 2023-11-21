@@ -31,22 +31,23 @@ def draw_card():
     global deck
     card = random.choice(deck)
     deck.remove(card)
-    print(card)
     return card
 
 def deal_user():
     """
     Deal two cards to the user
     """
-    card1 = draw_card()
-    card2 = draw_card()
-    return [card1, card2]
+    user_card1 = draw_card()
+    user_card2 = draw_card()
+    print(user_card1, user_card2)
+    return [user_card1, user_card2]
 
 def deal_dealer():
     """
     Deal two cards to the dealer
     """
-    card1 = draw_card()
-    card2 = draw_card()
-    return [card1, card2]
+    dealer_card1 = draw_card()
+    dealer_card2 = draw_card()
+    print(dealer_card1)
+    return [dealer_card1, dealer_card2]
 
