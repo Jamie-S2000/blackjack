@@ -46,7 +46,7 @@ def deal_user():
     user_card2 = draw_card()
     user_hand.append(user_card1)
     user_hand.append(user_card2)
-    print(user_hand)
+    print(f"You were dealt {user_hand}")
 
 
 def deal_dealer():
@@ -57,7 +57,7 @@ def deal_dealer():
     dealer_card2 = draw_card()
     dealer_hand.append(dealer_card1)
     dealer_hand.append(dealer_card2)
-    print(dealer_card1)
+    print(f"The dealer was delt {dealer_card1} and a hidden card")
 
 
 def user_hit():
@@ -66,7 +66,8 @@ def user_hit():
     """
     hit_card = draw_card()
     user_hand.append(hit_card)
-    print(hit_card)
+    print(f"You were delt {hit_card}")
+    print(f"Your hand is now {user_hand}")
 
 def dealer_hit():
     """
@@ -74,4 +75,5 @@ def dealer_hit():
     """
     hit_card = draw_card()
     dealer_hand.append(hit_card)
-    print(hit_card)
+    print(f"The dealer was delt {hit_card}")
+    print(f"The dealer's hand is now {dealer_hand}")
