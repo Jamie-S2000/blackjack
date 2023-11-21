@@ -10,11 +10,6 @@ hands = {
     'user': [],
     'dealer': [],
 }
-pictureCardsValues = {
-    'Jack': 10,
-    'Queen': 10,
-    'King': 10,
-}
 
 
 def buildDeck():
@@ -112,7 +107,7 @@ def checkHand(player):
         cardValuesUser = []
         for cards in hands['user']:
             if cards[0] in ['Jack', 'Queen', 'King']:
-                cardValuesUser.append(pictureCardsValues[cards[0]])
+                cardValuesUser.append(10)
             elif cards[0] == 'Ace':
                 # ace choice value
                 print("You have an ace!")
@@ -127,7 +122,7 @@ def checkHand(player):
         cardValuesDealer = []
         for cards in hands['dealer']:
             if cards[0] in ['Jack', 'Queen', 'King']:
-                cardValuesDealer.append(pictureCardsValues[cards[0]])
+                cardValuesDealer.append(10)
             elif cards[0] in range(2, 11):
                 cardValuesDealer.append(cards[0])
             else:
@@ -174,5 +169,3 @@ def main():
     dealerChoice()
 
 main()
-
-
