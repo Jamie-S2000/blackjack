@@ -10,8 +10,10 @@ hands = {
     'user': [],
     'dealer': [],
 }
-userScore = 0
-dealerScore = 0
+scores = {
+    'user': 0,
+    'dealer': 0,
+}
 
 
 def buildDeck():
@@ -179,19 +181,31 @@ def compareHands(userTotal, dealerTotal):
     """
     winner = ""
     if userTotal == True:
-        print("The dealer wins!\n")
         winner = 'dealer'
     elif dealerTotal == True:
-        print("You win!\n")
         winner = 'user'
     elif userTotal > dealerTotal:
-        print("You win!\n")
         winner = 'user'
     else:
-        print("The dealer wins!\n")
         winner = 'dealer'
     
     return winner
+
+
+def increaseScore(winner):
+    """
+    Increases the score of the winner
+    """
+    global scores
+    if winner == 'user':
+        print("You win!")
+        scores['user'] += 1
+    else:
+        print("The dealer wins!")
+        scores['dealer'] += 1
+
+    print(f"The current scores are: \nUser: {scores['user']} \nDealer: {scores['dealer']}")
+    playAgain()
 
 
 def main():
