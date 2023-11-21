@@ -208,6 +208,20 @@ def increaseScore(winner):
     playAgain()
 
 
+def playAgain():
+    """
+    Asks the user if they want to play again
+    """
+    playAgain = input("Would you like to play again? (y/n)").lower()
+    if playAgain == 'y':
+        main()
+    elif playAgain == 'n':
+        print("Thanks for playing!")
+    else:
+        print("Please choose either y or n")
+        playAgain()
+
+
 def main():
     startGame()
     userChoice()
