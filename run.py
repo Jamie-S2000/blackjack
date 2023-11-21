@@ -41,3 +41,12 @@ def deal_user():
     card1 = draw_card()
     card2 = draw_card()
     return [card1, card2]
+
+def deal_dealer():
+    """
+    Deal two cards to the dealer
+    """
+    card1 = draw_card()
+    card2 = draw_card()
+    return [card1, card2]
+
