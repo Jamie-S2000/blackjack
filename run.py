@@ -103,7 +103,7 @@ def user_choice():
         while choice == 'h':
             print("You chose to hit")
             user_hit()
-            if check_hand(user_hand):
+            if check_hand_user(user_hand):
                 break
             choice = input("Would you like to hit or stick? (h/s)").lower()
     elif choice == 's':
@@ -113,7 +113,7 @@ def user_choice():
         user_choice()
 
 
-def check_hand(hand):
+def check_hand_user(hand):
     """
     Checks the hand to see if it is over 21
     """
@@ -147,8 +147,48 @@ def check_aces(hand):
             None
 
 
+def check_hand_dealer(hand):
+    """
+    Checks dealer hand value
+    """
+    global dealer_hand
+    card_values = []
+    for cards in dealer_hand:
+        if cards[0] in ['Jack', 'Queen', 'King']:
+            card_values.append(picture_cards_values[cards[0]])
+        elif cards[0] == 'Ace':
+            if sum(card_values) + 11 > 21:
+                card_values.append(1)
+                print("The dealer chose for the Ace to equal 1")
+            else:
+                card_values.append(11)
+                print("The dealer chose for the Ace to equal 11")
+        else:
+            card_values.append(cards[0])
+    total = sum(card_values)
+    return total
+
+
+def dealer_choice():
+    """
+    Dealer chooses to hit or stick
+    """
+    card_total = check_hand_dealer(dealer_hand)
+    while card_total < 17:
+        print(f"The dealer chose to hit")
+        dealer_hit()
+        card_total = check_hand_dealer(dealer_hand)
+    if card_total > 21:
+        print("The dealer is bust!")
+    else:
+        print(f"The dealer chose to stick")
+        print(f"The dealer's hand is {dealer_hand}")
+        compare_hands()
+
+
 def main():
     start_game()
     user_choice()
+    dealer_choice()
 
 main()
