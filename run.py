@@ -123,17 +123,17 @@ def check_hand(player):
             return user_total
     else:
         card_values_dealer = []
-        dealer_total = sum(card_values_dealer)
         for cards in hands['dealer']:
             if cards[0] in ['Jack', 'Queen', 'King']:
                 card_values_dealer.append(10)
             elif cards[0] in range(2, 11):
                 card_values_dealer.append(cards[0])
             else:
-                if dealer_total + 11 > 21:
+                if sum(card_values_dealer) + 11 > 21:
                     card_values_dealer.append(1)
                 else:
                     card_values_dealer.append(11)
+        dealer_total = sum(card_values_dealer)
         return dealer_total
 
 
