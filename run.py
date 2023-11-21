@@ -95,11 +95,14 @@ def user_choice():
     global user_hand
     choice = input("Would you like to hit or stick? (h/s)").lower()
     if choice == 'h':
-        print("You chosen to hit")
-        user_hit()
-        check_hand(user_hand)
+        while choice == 'h':
+            print("You chose to hit")
+            user_hit()
+            if check_hand(user_hand):
+                break
+            choice = input("Would you like to hit or stick? (h/s)").lower()
     elif choice == 's':
-        print("You have chosen to stick")
+        print("You chose to stick")
     else:
         print("Please choose either hit (h) or stick (s)")
         user_choice()
@@ -107,5 +110,4 @@ def user_choice():
 
 def main():
     start_game()
-    
     user_choice()
