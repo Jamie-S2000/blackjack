@@ -76,7 +76,8 @@ def startGame():
     """
     Starts the game
     """
-    input("Welcome to BlackJack! Press enter to start")
+    if deck == []:
+        input("Welcome to BlackJack! Press enter to start")
     deck.clear()
     hands['user'].clear()
     hands['dealer'].clear()
