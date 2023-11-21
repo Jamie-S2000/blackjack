@@ -209,13 +209,13 @@ def play_again():
     """
     Asks the user if they want to play again
     """
-    play_again = input("Would you like to play again? (y/n)").lower()
-    if play_again == 'y':
+    play = input("Would you like to play again? (y/n)").lower()
+    if play == 'y':
         main()
-    elif play_again == 'n':
+    elif play == 'n':
         print("Thanks for playing!")
     else:
-        print("Please choose either y or n")
+        print("Please choose either y or n: ")
 
 
 def main():
