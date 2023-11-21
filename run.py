@@ -77,3 +77,18 @@ def dealer_hit():
     dealer_hand.append(hit_card)
     print(f"The dealer was delt {hit_card}")
     print(f"The dealer's hand is now {dealer_hand}")
+
+
+def start_game():
+    """
+    Starts the game
+    """
+    input("Welcome to BlackJack! Press enter to start")
+    build_deck()
+
+
+def main():
+    start_game()
+    deal_user()
+    deal_dealer()
+    user_choice()
