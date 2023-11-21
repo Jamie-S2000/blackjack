@@ -85,7 +85,6 @@ def user_choice():
     """
     Gives user the choice to hit or stick
     """
-    
     choice = input("Would you like to hit or stick? (h/s)").lower()
     if choice == 'h':
         while choice == 'h':
@@ -100,7 +99,7 @@ def user_choice():
         print("Please choose either hit (h) or stick (s)")
         user_choice()
 
-    
+
 def check_hand(player):
     """
     Checks hand to see if it is over 21
@@ -183,7 +182,6 @@ def compare_hands(user_total, dealer_total):
         winner = 'user'
     else:
         winner = 'dealer'
-    
     return winner
 
 
@@ -191,7 +189,6 @@ def increase_score(winner):
     """
     Increases the score of the winner
     """
-    
     if winner == 'user':
         print("You win!")
         scores['user'] += 1
@@ -225,5 +222,5 @@ def main():
     dealer_total = check_hand('dealer')
     winner = compare_hands(user_total, dealer_total)
     increase_score(winner)
-    
+
 main()
