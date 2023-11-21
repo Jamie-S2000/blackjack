@@ -211,11 +211,11 @@ def play_again():
     play = input("Would you like to play again? (y/n)").lower()
     while play not in ['y', 'n']:
         play = input("Please choose either y or n: ").lower()
-        if play == 'y':
-            main()
-        elif play == 'n':
-            print("Thanks for playing!")
-            exit()
+    if play == 'y':
+        main()
+    elif play == 'n':
+        print("Thanks for playing!")
+        exit()
 
 
 def main():
