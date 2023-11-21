@@ -93,7 +93,7 @@ def userChoice():
         while choice == 'h':
             print("You chose to hit")
             hit("user")
-            if checkHandUser(hands['user']):
+            if checkHand('user'):
                 break
             choice = input("Would you like to hit or stick? (h/s)").lower()
     elif choice == 's':
@@ -102,26 +102,41 @@ def userChoice():
         print("Please choose either hit (h) or stick (s)")
         userChoice()
 
-
-def checkHandUser(hand):
+    
+def checkHand(player):
     """
-    Checks the hand to see if it is over 21
+    Checks hand to see if it is over 21
     """
     global hands
-    cardValues = []
-    for cards in hands['user']:
-        if cards[0] in ['Jack', 'Queen', 'King']:
-            cardValues.append(pictureCardsValues[cards[0]])
-        elif cards[0] == 'Ace':
-            # ace choice value
-            print("You have an ace!")
+    if player == 'user':
+        cardValuesUser = []
+        for cards in hands['user']:
+            if cards[0] in ['Jack', 'Queen', 'King']:
+                cardValuesUser.append(pictureCardsValues[cards[0]])
+            elif cards[0] == 'Ace':
+                # ace choice value
+                print("You have an ace!")
+            else:
+                cardValuesUser.append(cards[0])
+        if sum(cardValuesUser) > 21:
+            print("You are bust!")
+            return True
         else:
-            cardValues.append(cards[0])
-    if sum(cardValues) > 21:
-        print("You are bust!")
-        return True
+            return sum(cardValuesUser)
     else:
-        return False
+        cardValuesDealer = []
+        for cards in hands['dealer']:
+            if cards[0] in ['Jack', 'Queen', 'King']:
+                cardValuesDealer.append(pictureCardsValues[cards[0]])
+            elif cards[0] in range(2, 11):
+                cardValuesDealer.append(cards[0])
+            else:
+                if sum(cardValuesDealer) + 11 > 21:
+                    cardValuesDealer.append(1)
+                else:
+                    cardValuesDealer.append(11)
+        total = sum(cardValuesDealer)
+        return total
 
 
 def checkAces(hand):
@@ -137,35 +152,15 @@ def checkAces(hand):
             None
 
 
-def checkHandDealer(hand):
-    """
-    Checks dealer hand value
-    """
-    global hands
-    cardValues = []
-    for cards in hands['dealer']:
-        if cards[0] in ['Jack', 'Queen', 'King']:
-            cardValues.append(pictureCardsValues[cards[0]])
-        elif cards[0] in range(2, 11):
-            cardValues.append(cards[0])
-        else:
-            if sum(cardValues) + 11 > 21:
-                cardValues.append(1)
-            else:
-                cardValues.append(11)
-    total = sum(cardValues)
-    return total
-
-
 def dealerChoice():
     """
     Dealer chooses to hit or stick
     """
-    cardTotal = checkHandDealer(hands['dealer'])
+    cardTotal = checkHand('dealer')
     while cardTotal < 17:
         print(f"The dealer chose to hit")
         hit('dealer')
-        cardTotal = checkHandDealer(hands['dealer'])
+        cardTotal = checkHand('dealer')
     if cardTotal > 21:
         print("The dealer is bust!")
     else:
