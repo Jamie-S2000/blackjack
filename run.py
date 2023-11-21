@@ -134,6 +134,18 @@ def check_hand(hand):
         return False
 
 
+def check_aces(hand):
+    """
+    Checks the hand for aces
+    """
+    card_values = []
+    for cards in hand:
+        if cards[-1] in ["Ace"]:
+            ace_value = input("You have an ace! Would you like it to be 1 or 11?")
+            return ace_value
+        else:
+            None
+
 
 def main():
     start_game()
