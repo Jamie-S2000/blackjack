@@ -13,6 +13,7 @@ def build_deck():
     Builds a deck of cards
     """
     global deck
+    deck.clear()
     suites = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
     for suite in suites:
         for i in range(2, 11):
@@ -51,3 +52,10 @@ def deal_dealer():
     print(dealer_card1)
     return [dealer_card1, dealer_card2]
 
+def hit():
+    """
+    Hit the user with another card
+    """
+    user_card = draw_card()
+    print(user_card)
+    return user_card
