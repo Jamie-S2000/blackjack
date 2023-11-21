@@ -20,7 +20,6 @@ def build_deck():
     """
     Builds a deck of cards
     """
-    
     suites = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
     for suite in suites:
         for i in range(2, 11):
@@ -36,7 +35,6 @@ def draw_card():
     """
     Draws a card from the deck
     """
-    
     card = random.choice(deck)
     deck.remove(card)
     return card
@@ -46,7 +44,6 @@ def deal(player):
     """
     Deals two cards to the user and dealer
     """
-    
     card_1 = draw_card()
     card_2 = draw_card()
     hands[player].append(card_1)
@@ -61,7 +58,7 @@ def hit(player):
     """
     Hit the player with another card
     """
-    global hands
+    
     card = draw_card()
     hands[player].append(card)
     if player == "user":
@@ -89,7 +86,7 @@ def user_choice():
     """
     Gives user the choice to hit or stick
     """
-    global hands
+    
     choice = input("Would you like to hit or stick? (h/s)").lower()
     if choice == 'h':
         while choice == 'h':
@@ -110,7 +107,6 @@ def check_hand(player):
     """
     Checks hand to see if it is over 21
     """
-    global hands
     if player == 'user':
         card_values_user = []
         for cards in hands['user']:
@@ -150,7 +146,6 @@ def check_aces():
     """
     Checks the hand for aces
     """
-    
     ace_value = input("You have an ace! Would you like it to be 1 or 11?")
     while ace_value not in ['1', '11']:
         ace_value = input("Please choose either 1 or 11: ")
@@ -168,7 +163,7 @@ def dealer_choice(user_total):
         while card_total < 17:
             print(f"The dealer chose to hit")
             hit('dealer')
-            card_total = checkHand('dealer')
+            card_total = check_hand('dealer')
         if card_total > 21:
             print("The dealer is bust!")
             return True
@@ -199,7 +194,7 @@ def increase_score(winner):
     """
     Increases the score of the winner
     """
-    global scores
+    
     if winner == 'user':
         print("You win!")
         scores['user'] += 1
