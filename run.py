@@ -20,7 +20,7 @@ def build_deck():
     """
     Builds a deck of cards
     """
-    global deck
+    
     suites = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
     for suite in suites:
         for i in range(2, 11):
@@ -36,7 +36,7 @@ def draw_card():
     """
     Draws a card from the deck
     """
-    global deck
+    
     card = random.choice(deck)
     deck.remove(card)
     return card
@@ -46,7 +46,7 @@ def deal(player):
     """
     Deals two cards to the user and dealer
     """
-    global hands
+    
     card_1 = draw_card()
     card_2 = draw_card()
     hands[player].append(card_1)
@@ -222,7 +222,6 @@ def play_again():
         print("Thanks for playing!")
     else:
         print("Please choose either y or n")
-        play_again()
 
 
 def main():
@@ -233,6 +232,5 @@ def main():
     dealer_total = check_hand('dealer')
     winner = compare_hands(user_total, dealer_total)
     increase_score(winner)
-    play_again()
     
 main()
