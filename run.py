@@ -19,7 +19,7 @@ def build_deck():
     """
     Builds a deck of cards
     """
-    suites = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
+    suites = ['\u2665', '\u2666', '\u2660', '\u2663']
     for suite in suites:
         for i in range(2, 11):
             deck.append((i, suite))
