@@ -109,8 +109,8 @@ def checkHand(player):
             if cards[0] in ['Jack', 'Queen', 'King']:
                 cardValuesUser.append(10)
             elif cards[0] == 'Ace':
-                # ace choice value
-                print("You have an ace!")
+                aceValue = checkAces()
+                cardValuesUser.append(aceValue)
             else:
                 cardValuesUser.append(cards[0])
         if sum(cardValuesUser) > 21:
@@ -134,17 +134,15 @@ def checkHand(player):
         return total
 
 
-def checkAces(hand):
+def checkAces():
     """
     Checks the hand for aces
     """
-    cardValues = []
-    for cards in hand:
-        if cards[0] in ["Ace"]:
-            aceValue = input("You have an ace! Would you like it to be 1 or 11?")
-            return aceValue
-        else:
-            None
+    
+    aceValue = input("You have an ace! Would you like it to be 1 or 11?")
+    while aceValue not in ['1', '11']:
+        aceValue = input("Please choose either 1 or 11: ")
+    return int(aceValue)
 
 
 def dealerChoice():
@@ -167,5 +165,5 @@ def main():
     startGame()
     userChoice()
     dealerChoice()
-
+    
 main()
