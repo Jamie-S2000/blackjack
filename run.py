@@ -2,6 +2,7 @@
 BlackJack
 """
 
+import random
 
 deck = []
 
@@ -17,3 +18,5 @@ def build_deck():
         deck.append((suite, 'K'))
         deck.append((suite, 'A'))
     return deck
+
+
