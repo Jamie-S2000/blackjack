@@ -154,21 +154,20 @@ def dealer_choice(user_total):
     """
     Dealer chooses to hit or stick
     """
-    card_total = check_hand('dealer')
+    card_total = check_hand("dealer")
     if user_total is True:
+        print("The dealer is bust!")
         return False
-    else:    
-        while card_total < 17:
-            print("The dealer chose to hit")
-            hit('dealer')
-            card_total = check_hand('dealer')
-        if card_total > 21:
-            print("The dealer is bust!")
-            return True
-        else:
-            print("The dealer chose to stick")
-            print(f"The dealer's hand is {hands['dealer']}")
-            return card_total
+    else:
+        while isinstance(card_total, int) and card_total < 17:
+            hit("dealer")
+            card_total = check_hand("dealer")
+            if card_total is True:
+                print("The dealer is busticated!")
+                return False
+        print("The dealer chose to stick")
+        print(f"The dealer's hand is {hands['dealer']}")
+        return card_total
 
 
 def compare_hands(user_total, dealer_total):
