@@ -163,7 +163,9 @@ def dealer_choice(user_total):
         hit("dealer")
         card_total = check_hand("dealer")
 
-    print("The dealer chose to stick\n")
+    if card_total < 21:
+        print("The dealer chose to stick\n")
+
     print(f"The dealer's hand is {hands['dealer']}\n")
     return card_total
 
