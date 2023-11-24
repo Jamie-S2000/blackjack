@@ -166,7 +166,6 @@ def dealer_choice(user_total):
     if card_total < 21:
         print("The dealer chose to stick\n")
 
-    print(f"The dealer's hand is {hands['dealer']}\n")
     return card_total
 
 
@@ -174,6 +173,9 @@ def compare_hands(user_total, dealer_total):
     """
     Compares the totals of the dealers hand and the players hand
     """
+
+    print(f"Your hand is {hands['user']}\n")
+    print(f"The dealer's hand is {hands['dealer']}\n")
     winner = ""
     if user_total > 21:
         winner = 'dealer'
