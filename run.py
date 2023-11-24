@@ -93,7 +93,7 @@ def user_choice():
     """
     Gives user the choice to hit or stick
     """
-    choice = input("Would you like to hit or stick? (h/s) ").lower()
+    choice = input("Would you like to hit or stick? (h/s) \n").lower()
     if choice == 'h':
         while choice == 'h':
             print("You chose to hit\n")
