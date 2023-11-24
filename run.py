@@ -27,7 +27,6 @@ def build_deck():
         deck.append(('Queen', suite))
         deck.append(('King', suite))
         deck.append(('Ace', suite))
-    return deck
 
 
 def draw_card():
