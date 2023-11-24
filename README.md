@@ -11,3 +11,18 @@ The game opens with ASCII art in the form of playing cards for the title.
 They are shown the rules of the game and then are prompted to play. The game is entirely random with a deck of cards that has cards removed each time they are drawn. After each round a new deck is created and new cards are dealt making sure the deck doesn't run out of cards.
 When the user quits the game they are shown the final scores.
 [Click here for the final deployment of the game.](https://blackjack-js-d463044b2718.herokuapp.com/)
+
+![Screenshot of "Am I Responsive?" image](/assets/images/am-i-responsive.png)
+This shows how the deployed site looks on different devices.
+<br>
+
+## Contents
+1. [Overview](#overview)
+1. [Planning]
+1. [Current Features]
+1. [Future Features and Improvements]
+1. [Testing]
+1. [Deployment]
+1. [Tech]
+1. [Credits]
+
