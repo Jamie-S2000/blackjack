@@ -122,6 +122,7 @@ def check_hand(player):
     Checks hand to see if it is over 21
     """
     card_values = []
+    
     for cards in hands[player]:
         if cards[0] in ['Jack', 'Queen', 'King']:
             card_values.append(10)
@@ -154,9 +155,7 @@ def dealer_choice(user_total):
     Dealer chooses to hit or stick
     """
     card_total = check_hand("dealer")
-    if card_total > 21:
-        return card_total
-    while user_total <= 21 and card_total < 17:
+    while card_total < user_total and card_total < 17 and user_total <= 21:
         hit("dealer")
         card_total = check_hand("dealer")
 

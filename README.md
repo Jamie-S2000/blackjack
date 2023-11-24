@@ -60,3 +60,50 @@ Here is the flowchart used:
 ### Color Scheme and Typography
 These were not factors in creating this project
 
+## Current Features
+
+-__Global Variables__
+- Deck
+    - The deck variable holds all the cards for each round
+- Hands
+    - The hands variable holds both the dealer and player hands.
+    - It is made as a dictionary to hold them both together, with the key being the user/dealer, and the value being a list of their cards.
+- Scores
+    - The scores are also held in a dictionary together.
+    - The keys are the user/dealer again and the value is the amount of wins.
+
+- __build_deck__
+- The deck and deck build function build a 52 card deck of 4 suites with 9 value cards and 4 picture cards.
+- Each card in represented as a tuple.
+- It is cleared and remade after each round of the game is played.
+- It uses unicode characters for the suites to add some visualisation to the game.
+
+- __draw_card__
+- This function takes a card from the deck, removes it from the deck and returns the value of the card.
+
+-__start_game__
+This function has two parts to it.
+One half of the function only runs if it is the first time the game has been played. This shows:
+- A Title made of playing cards.
+- The rules.
+- A start game input.
+The second half runs each time a round started:
+- It clears the deck, the users hand and the dealers hand.
+- It rebuilds the deck so it has 52 cards again.
+- It runs the deal function for the dealer and user.
+
+-__deal(player)__
+This function deals cards to the players.
+- It draws two cards from the draw function.
+- Adds these to the hands of the current player.
+- Prints in the console the users cards and one of the dealers cards.
+
+-__hit(player)__
+This function is how the player draws more cards.
+- It runs the draw function and adds it to their hand.
+- It then prints out the new cards and the current hand in the console.
+
+-__user_choice__
+This gives the user a choice of hitting ot sticking.
+- When the user hist the hit function is run then the hand is checked in the check_hand function
+- When the user sticks the hand is checked in the Check hand function
