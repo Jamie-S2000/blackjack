@@ -122,7 +122,7 @@ def check_hand(player):
     Checks hand to see if it is over 21
     """
     card_values = []
-    
+
     for cards in hands[player]:
         if cards[0] in ['Jack', 'Queen', 'King']:
             card_values.append(10)
