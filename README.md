@@ -30,6 +30,7 @@ This shows how the deployed site looks on different devices.
 1. [Deployment]
 1. [Tech]
 1. [Credits]
+<br>
 
 ## Planning
 
@@ -59,6 +60,7 @@ Here is the flowchart used:
 
 ### Color Scheme and Typography
 These were not factors in creating this project
+<br>
 
 ## Current Features
 
@@ -144,6 +146,7 @@ This compares the hands of the dealer and the user.
 This asks users if they would like to play again
 - If they choose "y" then the game runs another round.
 - If they choose "n" Then the game prints "thanks for playing" and exits.
+<br>
 
 ## Future Features and Improvements
 There are a few ideas that could help improve and enhance the project.
