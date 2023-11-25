@@ -25,7 +25,7 @@ This shows how the deployed site looks on different devices.
     - [Lucid Chart and Other Planning](#lucid-chart-and-other-planning)
     - [Color Scheme and Typography](#color-scheme-and-typography)
 1. [Current Features](#current-features)
-1. [Future Features and Improvements]
+1. [Future Features and Improvements](#future-features-and-improvements)
 1. [Testing]
 1. [Deployment]
 1. [Tech]
@@ -144,3 +144,12 @@ This compares the hands of the dealer and the user.
 This asks users if they would like to play again
 - If they choose "y" then the game runs another round.
 - If they choose "n" Then the game prints "thanks for playing" and exits.
+
+## Future Features and Improvements
+There are a few ideas that could help improve and enhance the project.
+- A Choice of multiple decks that don't get reset each time could make the game closer to life and more challenging.
+- A card counting algorithm for the dealer to make more informed choices making the game more difficult.
+- A betting system for the user to wager points against the dealer.
+    - This would mean the dealer and user both start with an amount of points that they can win or lose.
+- Other rules of the game such as double down and splitting hands.
+- Images of each card like the title.
