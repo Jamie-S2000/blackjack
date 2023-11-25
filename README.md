@@ -55,7 +55,7 @@ This shows how the deployed site looks on different devices.
 - To provide a fun game to the user.
 
 ### Lucid Chart and Other Planning
-The planning for this project was originally written in a notebook. This was to get a base of how the game would function and the different needs of the game. This was then made into a flowchart in order to map out how the game would work. This became a massive help in organising the project and getting the game to run smoothly.
+The planning for this project was originally written in a notebook. This was to get a base of how the game would function and the different needs of the game. This was then made into a flowchart to map out how the game would work. This became a massive help in organising the project and getting the game to run smoothly.
 Here is the flowchart used:
 ![Flowchat used in the development of the game](/assets/images/flow-chart.jpeg)
 
@@ -212,7 +212,7 @@ This code was refactored (*check_hand(player) function*) so will look different 
 ### Validator testing
 The code has been run through the [PEP8 python validator](#https://pep8ci.herokuapp.com/).
 There are error messages for the title some of the rules being too long but these do not affect the game code.
-when ran on Heroku everything fits in the console without issue and so is fine.
+when it is run on Heroku everything fits in the console without issue and so is fine.
 <br>
 
 ## Deployment
