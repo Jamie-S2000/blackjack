@@ -2,7 +2,7 @@
 <br>
 
 ## Overview
-BlackJack, also known as twenty-one, is a game of chance where players try to make cards add up to, or as close to, 21 as possible. This version has been developed to go from being played in person, to on a command line.
+BlackJack, also known as twenty-one, is a game of chance where players try to make cards add up to, or as close to, 21 as possible. This has been developed to simulate playing in persion on a command line.
 
 The game is played against a dealer (the CPU). The dealer shuffles the deck, deals two cards to each player and reveals one of their cards. The player chooses to hit(draw a card) or stick (stick with the cards they have). Then the dealer does the same. In this version, the dealer will only draw cards if their score is below 17. This is similar to real casino rules.
 Each hand ends when either one player goes bust (their cards total over 21) or both choose to stick. The total of these cards is then compared and the winner is the closest player to 21. If the totals are the same then the dealer wins.
