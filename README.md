@@ -28,7 +28,7 @@ This shows how the deployed site looks on different devices.
 1. [Future Features and Improvements](#future-features-and-improvements)
 1. [Testing](#testing)
     -[Bugs](#bugs)
-1. [Deployment]
+1. [Deployment](#deployment)
 1. [Tech]
 1. [Credits]
 <br>
@@ -208,3 +208,27 @@ dealer_total = sum(card_values_dealer)
 return dealer_total
 ```
 This code was refactored (*check_hand(player) function*) so will look different in the final version.
+<br>
+
+## Deployment
+
+The project was deployed to Heroku using the following steps:
+
+1. Log into Heroku or create an account.
+1. Go to your dashboard.
+1. click "New" then "Create new app".
+1. Create a unique app name ("blackJack-js" for blackjack plus my initials, not JavaScript), select the correct region and create app.
+1. This will direct you to the deploy tab.
+1. Navigate to settings.
+1. Go to the Config Vars section, click add and add with:
+    - KEY = PORT
+    - VALUE = 8000
+1. Navigate to Buildpacks and add:
+    - Heroku/python
+    - Heroku/nodejs
+**They must be in this order**
+1. Once this is done navigate to deploy.
+1. Select GitHub as your deployment method.
+1. Search for the repository and select it to connect.
+1. select the deployment type you would like to use and deploy.
+
