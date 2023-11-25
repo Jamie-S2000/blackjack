@@ -23,8 +23,8 @@ This shows how the deployed site looks on different devices.
     - [User Stories](#user-stories)
     - [Site Aims](#site-aims)
     - [Lucid Chart and Other Planning](#lucid-chart-and-other-planning)
-    - Color Scheme and Typography
-1. [Current Features]
+    - [Color Scheme and Typography](#color-scheme-and-typography)
+1. [Current Features](#current-features)
 1. [Future Features and Improvements]
 1. [Testing]
 1. [Deployment]
@@ -66,29 +66,29 @@ These were not factors in creating this project
 - Deck
     - The deck variable holds all the cards for each round
 - Hands
-    - The hands variable holds both the dealer and player hands.
+    - The hands variable holds both the dealer's and user's hands.
     - It is made as a dictionary to hold them both together, with the key being the user/dealer, and the value being a list of their cards.
 - Scores
     - The scores are also held in a dictionary together.
-    - The keys are the user/dealer again and the value is the amount of wins.
+    - The keys are the user/dealer again and the value is the number of wins.
 
 - __build_deck__
-- The deck and deck build function build a 52 card deck of 4 suites with 9 value cards and 4 picture cards.
-- Each card in represented as a tuple.
+- The deck and deck build function build a 52-card deck of 4 suites with 9 value cards and 4 picture cards.
+- Each card is represented as a tuple.
 - It is cleared and remade after each round of the game is played.
-- It uses unicode characters for the suites to add some visualisation to the game.
+- It uses Unicode characters for the suites to add some visualisation to the game.
 
 - __draw_card__
 - This function takes a card from the deck, removes it from the deck and returns the value of the card.
 
 -__start_game__
 This function has two parts to it.
-One half of the function only runs if it is the first time the game has been played. This shows:
+One-half of the function only runs if it is the first time the game has been played. This shows:
 - A Title made of playing cards.
 - The rules.
 - A start game input.
-The second half runs each time a round started:
-- It clears the deck, the users hand and the dealers hand.
+The second half runs each time a round starts:
+- It clears the deck, the user's hand and the dealer's hand.
 - It rebuilds the deck so it has 52 cards again.
 - It runs the deal function for the dealer and user.
 
@@ -96,7 +96,7 @@ The second half runs each time a round started:
 This function deals cards to the players.
 - It draws two cards from the draw function.
 - Adds these to the hands of the current player.
-- Prints in the console the users cards and one of the dealers cards.
+- Prints in the console the user's cards and one of the dealer's cards.
 
 -__hit(player)__
 This function is how the player draws more cards.
@@ -104,16 +104,16 @@ This function is how the player draws more cards.
 - It then prints out the new cards and the current hand in the console.
 
 -__user_choice__
-This gives the user a choice of hitting ot sticking.
+This gives the user a choice of hitting or sticking.
 - When the user hits, the hit function is run then the hand is checked in the check_hand function
 - When the user sticks the user is notified they stuck.
 
 -__check_hand(player)__
-This function checks each players hand
+This function checks each player's hand
 - For both the user and the dealer, all cards bar the aces are put into a list.
 - When the user has an Ace, the check_aces function is called.
 - When the dealer has an Ace, the value is determined by if the current total is less than 11.
-- If the total is less than 11 then the Ace is an 11, otherwise the Ace is a 1.
+- If the total is less than 11 then the Ace is an 11, otherwise, the Ace is a 1.
 - Once the Aces value is chosen the total is determined and returned by the function.
 
 -__check_aces__
@@ -121,22 +121,22 @@ This function checks each players hand
 - It will not allow any value other than 1 or 11
 
 -__dealer_choice__
-This determines weither the dealer should hit or stick.
+This determines whether the dealer should hit or stick.
 - The dealer decided depending on if:
-    1. The dealers hand's value is less than the users.
+    1. The dealer's hand's value is less than the user's.
     2. The dealer hand's value is less than 17.
     3. The user is not bust
-- All three of these must be true or the dealer wont hit.
+- All three of these must be true or the dealer won't hit.
 - Once one of these is no longer true the dealer will stick if they aren't bust.
-- The total value of the dealers cards is then returned.
+- The total value of the dealer's cards is then returned.
 
 -__compare_hands__
 This compares the hands of the dealer and the user.
-- Depending on if a player went bust, or who's value was higher, a winner is announced.
+- Depending on if a player went bust, or whose value was higher, a winner is announced.
 - The winner is then returned.
 
 -__increase_score(winner)__
-- The winners core is increased
+- The winner core is increased
 - The scores are printed to the console.
 - It then runs the play again function.
 
