@@ -27,6 +27,7 @@ This shows how the deployed site looks on different devices.
 1. [Current Features](#current-features)
 1. [Future Features and Improvements](#future-features-and-improvements)
 1. [Testing](#testing)
+    -[Bugs](#bugs)
 1. [Deployment]
 1. [Tech]
 1. [Credits]
