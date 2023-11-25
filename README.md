@@ -208,6 +208,11 @@ dealer_total = sum(card_values_dealer)
 return dealer_total
 ```
 This code was refactored (*check_hand(player) function*) so will look different in the final version.
+
+### Validator testing
+The code has been run through the [PEP8 python validator](#https://pep8ci.herokuapp.com/).
+There are error messages for the title some of the rules being too long but these do not affect the game code.
+when ran on Heroku everything fits in the console without issue and so is fine.
 <br>
 
 ## Deployment
