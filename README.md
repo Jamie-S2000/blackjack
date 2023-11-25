@@ -30,7 +30,7 @@ This shows how the deployed site looks on different devices.
     -[Bugs](#bugs)
 1. [Deployment](#deployment)
 1. [Tech](#tech)
-1. [Credits]
+1. [Credits](#credits)
 <br>
 
 ## Planning
@@ -248,3 +248,7 @@ Heroku was used to deploy the project.
 Lucid Chart was used to plan the logic
 [https://patorjk.com/](https://patorjk.com/) was used for the title.
 <br>
+
+## Credits
+- [ASCII art generator](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) for the title.
+- Richard Wells, my mentor, who helped to debug the major bug in the project and gave ideas to improve the project.
