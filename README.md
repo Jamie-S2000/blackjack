@@ -105,5 +105,42 @@ This function is how the player draws more cards.
 
 -__user_choice__
 This gives the user a choice of hitting ot sticking.
-- When the user hist the hit function is run then the hand is checked in the check_hand function
-- When the user sticks the hand is checked in the Check hand function
+- When the user hits, the hit function is run then the hand is checked in the check_hand function
+- When the user sticks the user is notified they stuck.
+
+-__check_hand(player)__
+This function checks each players hand
+- For both the user and the dealer, all cards bar the aces are put into a list.
+- When the user has an Ace, the check_aces function is called.
+- When the dealer has an Ace, the value is determined by if the current total is less than 11.
+- If the total is less than 11 then the Ace is an 11, otherwise the Ace is a 1.
+- Once the Aces value is chosen the total is determined and returned by the function.
+
+-__check_aces__
+-This function allows the user to determine the value of each ace they draw.
+- It will not allow any value other than 1 or 11
+
+-__dealer_choice__
+This determines weither the dealer should hit or stick.
+- The dealer decided depending on if:
+    1. The dealers hand's value is less than the users.
+    2. The dealer hand's value is less than 17.
+    3. The user is not bust
+- All three of these must be true or the dealer wont hit.
+- Once one of these is no longer true the dealer will stick if they aren't bust.
+- The total value of the dealers cards is then returned.
+
+-__compare_hands__
+This compares the hands of the dealer and the user.
+- Depending on if a player went bust, or who's value was higher, a winner is announced.
+- The winner is then returned.
+
+-__increase_score(winner)__
+- The winners core is increased
+- The scores are printed to the console.
+- It then runs the play again function.
+
+-__play_again__
+This asks users if they would like to play again
+- If they choose "y" then the game runs another round.
+- If they choose "n" Then the game prints "thanks for playing" and exits.
