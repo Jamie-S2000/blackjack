@@ -29,7 +29,7 @@ This shows how the deployed site looks on different devices.
 1. [Testing](#testing)
     -[Bugs](#bugs)
 1. [Deployment](#deployment)
-1. [Tech]
+1. [Tech](#tech)
 1. [Credits]
 <br>
 
@@ -231,4 +231,20 @@ The project was deployed to Heroku using the following steps:
 1. Select GitHub as your deployment method.
 1. Search for the repository and select it to connect.
 1. select the deployment type you would like to use and deploy.
+<br>
 
+## Tech
+Python was the only technology used in this project.
+<br>
+
+### Libraries
+**Random** was used to pick the cards.
+<br>
+
+### Software
+Git and VS Code were used to create and push the code to Github.
+Git (Github) was used for version control.
+Heroku was used to deploy the project.
+Lucid Chart was used to plan the logic
+[https://patorjk.com/](https://patorjk.com/) was used for the title.
+<br>
