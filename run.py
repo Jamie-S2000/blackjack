@@ -22,11 +22,11 @@ def build_deck():
     suites = ['\u2665', '\u2666', '\u2660', '\u2663']
     for suite in suites:
         for i in range(2, 11):
-            deck.append((i, suite))
-        deck.append(('Jack', suite))
-        deck.append(('Queen', suite))
-        deck.append(('King', suite))
-        deck.append(('Ace', suite))
+            deck.append((i, f"the {i} of {suite}"))
+        deck.append(('Jack', f"the Jack of {suite}"))
+        deck.append(('Queen', f"the Queen of {suite}"))
+        deck.append(('King', f"the King of {suite}"))
+        deck.append(('Ace', f"the Ace of {suite}"))
 
 
 def draw_card():
@@ -77,9 +77,9 @@ def deal(player):
     hands[player].append(card_1)
     hands[player].append(card_2)
     if player == "user":
-        print(f"You were dealt {card_1} and {card_2}\n")
+        print(f"You were dealt {card_1[1]} and {card_2[1]}\n")
     else:
-        print(f"The dealer was dealt {card_1} and a hidden card\n")
+        print(f"The dealer was dealt {card_1[1]} and a hidden card\n")
 
 
 def hit(player):
@@ -89,12 +89,12 @@ def hit(player):
     card = draw_card()
     hands[player].append(card)
     if player == "user":
-        print(f"You were dealt {card}\n")
-        print(f"Your hand is now {hands[player]}\n")
+        print(f"You were dealt {card[1]}\n")
+        print(f"Your hand is now {', '.join(card[1] for card in hands[player])}\n")
     else:
         print("The dealer chose to hit")
-        print(f"The dealer was dealt {card}")
-        print(f"The dealer's hand is now {hands[player]}\n")
+        print(f"The dealer was dealt {card[1]}")
+        print(f"The dealer's hand is now {', '.join(card[1] for card in hands[player])}\n")
 
 
 def user_choice():
@@ -168,8 +168,8 @@ def compare_hands(user_total, dealer_total):
     Compares the totals of the dealers hand and the players hand
     """
 
-    print(f"Your hand is {hands['user']}\n")
-    print(f"The dealer's hand is {hands['dealer']}\n")
+    print(f"Your hand is {', '.join(card[1] for card in hands['user'])}\n")
+    print(f"The dealer's hand is {', '.join(card[1] for card in hands['dealer'])}\n")
     winner = ""
     if user_total > 21:
         winner = 'dealer'
