@@ -156,3 +156,53 @@ There are a few ideas that could help improve and enhance the project.
     - This would mean the dealer and user both start with an amount of points that they can win or lose.
 - Other rules of the game such as double down and splitting hands.
 - Images of each card like the title.
+<br>
+
+## Testing
+The program was tested to make sure the game functioned correctly thoughout development.
+- It was tested to make sure the inputs worked.
+- It was tested to make sure the code functioned how it should.
+- It was tested to make sure the game ended when prompted to.
+
+This was all tested loacally in the terminal and on Heroku.
+
+There was one major bug which would stop the game from running:
+- Sometimes, when the dealer would hit, they would keep hitting until they drew the whole deck and the game crashed.
+- The issue was the dealer's total card value was worked out outside a for loop.
+- This caused an issue where the dealer drew a card for each card in the dealers hand rather than for the total value of cards in hand.
+- It would only happen if the dealer hit and if they were within the stick range it wouldn't happen.
+- It meant each draw caused the loop to never reach the last card and so the deck would be drawn and the game would crash.
+Here is the bugged and fixed code, it is within the check_hand function:
+*Bugged code*:
+`
+card_values_dealer = []
+dealer_total = sum(card_values_dealer)
+for cards in hands['dealer']:
+    if cards[0] in ['Jack', 'Queen', 'King']:
+        card_values_dealer.append(10)
+    elif cards[0] in range(2, 11):
+        card_values_dealer.append(cards[0])
+    else:
+        if dealer_total + 11 > 21:
+            card_values_dealer.append(1)
+        else:
+            card_values_dealer.append(11)
+return dealer_total
+`
+*Fixed code*:
+`
+card_values_dealer = []
+for cards in hands['dealer']:
+    if cards[0] in ['Jack', 'Queen', 'King']:
+        card_values_dealer.append(10)
+    elif cards[0] in range(2, 11):
+        card_values_dealer.append(cards[0])
+    else:
+        if sum(card_values_dealer) + 11 > 21:
+            card_values_dealer.append(1)
+        else:
+            card_values_dealer.append(11)
+dealer_total = sum(card_values_dealer)
+return dealer_total
+`
+This code was refactored (*check_hand(player) function*) so will look different in the final verion.
