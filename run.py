@@ -138,7 +138,6 @@ def check_hand(player):
     return total
 
 
-
 def check_aces():
     """
     Checks the hand for aces
