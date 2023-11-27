@@ -23,9 +23,9 @@ def build_deck():
     for suite in suites:
         for i in range(2, 11):
             deck.append((i, f"the {i} of {suite}"))
-        deck.append(('Jack', f"the Jack of {suite}"))
-        deck.append(('Queen', f"the Queen of {suite}"))
-        deck.append(('King', f"the King of {suite}"))
+        deck.append((10, f"the Jack of {suite}"))
+        deck.append((10, f"the Queen of {suite}"))
+        deck.append((10, f"the King of {suite}"))
         deck.append(('Ace', f"the Ace of {suite}"))
 
 
