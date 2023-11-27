@@ -146,7 +146,7 @@ def check_hand(player):
 
 def check_aces():
     """
-    Checks the hand for aces
+    Checks the hand for aces and stores them each game
     """
     aces_in_hand = []
     for card in hands['user']:
