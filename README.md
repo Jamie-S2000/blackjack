@@ -140,7 +140,7 @@ This compares the hands of the dealer and the user.
 - The winner is then returned.
 
 - __increase_score(winner)__
-- The winner core is increased
+- The winner's score is increased
 - The scores are printed to the console.
 - It then runs the play again function.
 
