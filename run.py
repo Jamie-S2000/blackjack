@@ -61,6 +61,12 @@ def start_game():
         print("If you go over 21 you lose.")
         print("Good luck!\n")
         input("Press enter to start\n")
+
+
+def reset_game():
+    """
+    Reset's the game
+    """
     deck.clear()
     hands['user'].clear()
     hands['dealer'].clear()
@@ -218,6 +224,7 @@ def main():
     Runs the game
     """
     start_game()
+    reset_game()
     user_choice()
     user_total = check_hand('user')
     dealer_choice(user_total)
