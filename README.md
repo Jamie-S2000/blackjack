@@ -212,8 +212,7 @@ This code was refactored (*check_hand(player) function*) so will look different 
 
 ### Validator testing
 The code has been run through the [PEP8 python validator](#https://pep8ci.herokuapp.com/).
-There are error messages for the title some of the rules being too long but these do not affect the game code.
-when it is run on Heroku everything fits in the console without issue and so is fine.
+There are error messages for the title but these do not affect the game's code or how it runs.
 <br>
 
 ## Deployment
