@@ -75,6 +75,8 @@ These were not factors in creating this project
 - Scores
     - The scores are also held in a dictionary together.
     - The keys are the user/dealer again and the value is the number of wins.
+- Aces
+    - This is to store the value of any Aces for the user each round.
 
 - __build_deck__
 - The deck and deck build function build a 52-card deck of 4 suites with 9 value cards and 4 picture cards.
@@ -118,8 +120,9 @@ This function checks each player's hand
 - Once the Aces value is chosen the total is determined and returned by the function.
 
 - __check_aces__
--This function allows the user to determine the value of each ace they draw.
-- It will not allow any value other than 1 or 11
+- This function allows the user to determine the value of each ace they draw.
+- It will not allow any value other than 1 or 11.
+- It stores the value of each ace once chosen.
 
 - __dealer_choice__
 This determines whether the dealer should hit or stick.
