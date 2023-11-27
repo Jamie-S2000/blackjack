@@ -126,7 +126,7 @@ This function checks each player's hand
 
 - __dealer_choice__
 This determines whether the dealer should hit or stick.
-- The dealer decided depending on if:
+- The dealer's action is decided baised on if three rules are met:
     1. The dealer's hand's value is less than the user's.
     2. The dealer hand's value is less than 17.
     3. The user is not bust
