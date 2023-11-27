@@ -86,15 +86,12 @@ These were not factors in creating this project
 - This function takes a card from the deck, removes it from the deck and returns the value of the card.
 
 - __start_game__
-This function has two parts to it.
-One-half of the function only runs if it is the first time the game has been played. This shows:
 - A Title made of playing cards.
 - The rules.
 - A start game input.
-The second half runs each time a round starts:
-- It clears the deck, the user's hand and the dealer's hand.
-- It rebuilds the deck so it has 52 cards again.
-- It runs the deal function for the dealer and user.
+
+- __reset_game__
+- Resets all variables except the score.
 
 - __deal(player)__
 This function deals cards to the players.
