@@ -13,8 +13,6 @@ scores = {
     'user': 0,
     'dealer': 0,
 }
-
-
 aces = []
 
 
