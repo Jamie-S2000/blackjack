@@ -66,7 +66,7 @@ These were not factors in creating this project
 
 ## Current Features
 
--__Global Variables__
+- __Global Variables__
 - Deck
     - The deck variable holds all the cards for each round
 - Hands
@@ -85,7 +85,7 @@ These were not factors in creating this project
 - __draw_card__
 - This function takes a card from the deck, removes it from the deck and returns the value of the card.
 
--__start_game__
+- __start_game__
 This function has two parts to it.
 One-half of the function only runs if it is the first time the game has been played. This shows:
 - A Title made of playing cards.
@@ -96,23 +96,23 @@ The second half runs each time a round starts:
 - It rebuilds the deck so it has 52 cards again.
 - It runs the deal function for the dealer and user.
 
--__deal(player)__
+- __deal(player)__
 This function deals cards to the players.
 - It draws two cards from the draw function.
 - Adds these to the hands of the current player.
 - Prints in the console the user's cards and one of the dealer's cards.
 
--__hit(player)__
+- __hit(player)__
 This function is how the player draws more cards.
 - It runs the draw function and adds it to their hand.
 - It then prints out the new cards and the current hand in the console.
 
--__user_choice__
+- __user_choice__
 This gives the user a choice of hitting or sticking.
 - When the user hits, the hit function is run then the hand is checked in the check_hand function
 - When the user sticks the user is notified they stuck.
 
--__check_hand(player)__
+- __check_hand(player)__
 This function checks each player's hand
 - For both the user and the dealer, all cards bar the aces are put into a list.
 - When the user has an Ace, the check_aces function is called.
@@ -120,11 +120,11 @@ This function checks each player's hand
 - If the total is less than 11 then the Ace is an 11, otherwise, the Ace is a 1.
 - Once the Aces value is chosen the total is determined and returned by the function.
 
--__check_aces__
+- __check_aces__
 -This function allows the user to determine the value of each ace they draw.
 - It will not allow any value other than 1 or 11
 
--__dealer_choice__
+- __dealer_choice__
 This determines whether the dealer should hit or stick.
 - The dealer decided depending on if:
     1. The dealer's hand's value is less than the user's.
@@ -134,17 +134,17 @@ This determines whether the dealer should hit or stick.
 - Once one of these is no longer true the dealer will stick if they aren't bust.
 - The total value of the dealer's cards is then returned.
 
--__compare_hands__
+- __compare_hands__
 This compares the hands of the dealer and the user.
 - Depending on if a player went bust, or whose value was higher, a winner is announced.
 - The winner is then returned.
 
--__increase_score(winner)__
+- __increase_score(winner)__
 - The winner core is increased
 - The scores are printed to the console.
 - It then runs the play again function.
 
--__play_again__
+- __play_again__
 This asks users if they would like to play again
 - If they choose "y" then the game runs another round.
 - If they choose "n" Then the game prints "thanks for playing" and exits.
