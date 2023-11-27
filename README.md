@@ -51,7 +51,8 @@ This shows how the deployed site looks on different devices.
 ### Site Aims
 - To offer a game of BlackJack that is easy to interact with.
 - To make the game easy to understand and pick up.
-- To provide clear rules of the game and how to win.
+- To provide clear rules of the game.
+- To explain how to win.
 - To provide a fun game to the user.
 
 ### Lucid Chart and Other Planning
