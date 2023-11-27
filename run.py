@@ -121,22 +121,19 @@ def check_hand(player):
     """
     Checks hand to see if it is over 21
     """
-    card_values = []
+    card_values = 0
 
     for cards in hands[player]:
-        if cards[0] in ['Jack', 'Queen', 'King']:
-            card_values.append(10)
-        elif cards[0] == 'Ace':
+        if cards[0] == 'Ace':
             if player == 'user':
                 ace_value = check_aces()
-                card_values.append(ace_value)
+                card_values += ace_value
             else:
-                card_values.append(11 if sum(card_values) < 11 else 1)
+                card_values += 11 if card_values < 11 else 1
         else:
-            card_values.append(cards[0])
+            card_values += cards[0]
 
-    total = sum(card_values)
-    return total
+    return card_values
 
 
 def check_aces():
