@@ -15,6 +15,9 @@ scores = {
 }
 
 
+aces = []
+
+
 def build_deck():
     """
     Builds a deck of cards
@@ -70,6 +73,7 @@ def reset_game():
     deck.clear()
     hands['user'].clear()
     hands['dealer'].clear()
+    aces.clear()
     build_deck()
     deal("user")
     deal("dealer")
@@ -146,10 +150,18 @@ def check_aces():
     """
     Checks the hand for aces
     """
-    ace_value = input("You have an ace! Would you like it to be 1 or 11? \n")
-    while ace_value not in ['1', '11']:
-        ace_value = input("Please choose either 1 or 11: \n")
-    return int(ace_value)
+    aces_in_hand = []
+    for card in hands['user']:
+        if card[0] == 'Ace':
+            aces_in_hand.append(card)
+
+    for card in aces_in_hand:
+        if card[0] == 'Ace' and len(aces) < len(aces_in_hand):
+            ace_value = input("You have an ace! Would you like it to be 1 or 11? \n")
+            while ace_value not in ['1', '11']:
+                ace_value = input("Please choose either 1 or 11: \n")
+            aces.append(int(ace_value))
+        return sum(aces)
 
 
 def dealer_choice(user_total):
