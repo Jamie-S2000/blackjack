@@ -162,9 +162,27 @@ There are a few ideas that could help improve and enhance the project.
 
 ## Testing
 The program was tested to make sure the game functioned correctly throughout development.
-- It was tested to make sure the inputs worked.
-- It was tested to make sure the code functioned how it should.
-- It was tested to make sure the game ended when prompted to.
+**Start and End**
+The start and end inputs were tested to check they worked correctly.
+The start function was checked so it started the game when enter was pressed.
+The end input was checked so that only the correct input would end the game.
+- Other inputs were tested to make sure it did not end without being prompted to.
+
+**Inputs**
+The main inputs of the game are h (hit), s (stick) and choosing aces.
+*Hit and stick*
+These were tested so that when promped to input one, the game would only accept either h or s.
+The game was tested to check that when they were input, it would run the correct code.
+Other inputs were tested e.g. numbers, wrong letters etc. to make sure the code would not allow this.
+
+*Chooseing aces*
+This was tested so that the function would only accept the correct inputs, 1 and 11.
+Other inputs were tested to make sure the code wouldn't accept them.
+It was also tested to make sure the ace values were stored each time they were input.
+
+**Code Functionality**
+This was tested throughout the building of the project. Each piece of code was run to make sure it functioned correct. This was also to pick up any bugs that needed fixing. Most of this testing was in a local terminal.
+Once the project was finished and was running correctly, it was tested in Heroku. It was run multiple times with both correct and incorrect inputs to make sure everything ran smoothly.
 
 This was all tested locally in the terminal and on Heroku.
 
