@@ -229,8 +229,10 @@ return dealer_total
 This code was refactored (*check_hand(player) function*) so will look different in the final version.
 
 ### Validator testing
-The code has been run through the [PEP8 python validator](#https://pep8ci.herokuapp.com/).
-There are error messages for the title but these do not affect the game's code or how it runs.
+The code has been run through the [PEP8 python validator](#https://pep8ci.herokuapp.com/). The validator showed some errors. There are error messages for the ACSII art in the title. This does not affect the code for the game and so is fine. Also some print statement lines are flagged as too long. This cannot be helped especially for print statements with logic included.
+![Validator testing output 1](/assets/images/validator-1.png)
+![Validator testing output 2](/assets/images/validator-2.png)
+Nothing that was flagged affects the functionality of the code or mkaes the user experience worse.
 <br>
 
 ## Deployment
