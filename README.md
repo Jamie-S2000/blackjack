@@ -196,7 +196,7 @@ Once the project was finished and was running correctly, it was tested in Heroku
 This was all tested locally in the terminal and on Heroku.
 
 ### Bugs
-There was one major bug which would stop the game from running:
+**Infinate dealer hits**
 - Sometimes, when the dealer would hit, they would keep hitting until they drew the whole deck and the game crashed.
 - The issue was the dealer's total card value was worked out outside a for loop.
 - This caused an issue where the dealer drew a card for each card in the dealer's hand rather than for the total value of the cards in hand.
@@ -236,6 +236,57 @@ dealer_total = sum(card_values_dealer)
 return dealer_total
 ```
 This code was refactored (*check_hand(player) function*) so will look different in the final version.
+
+**Adding multiple aces**
+The check ace function was working fine if one ace was drawn. A bug was ran into when two aces were drawn:
+1. The function would ask which value the ace would be.
+2. The function would add the value of the first ace to the card total.
+3. The function would ask for the next value for the ace.
+4. When provided it would add the new value and the old values.
+5. It would repeat step 3 and 4 for each ace drawn.
+
+This was due to the function adding the list of aces each time rather than just the chosen value:
+*Bugged Code*
+```
+def check_aces():
+    """
+    Checks the hand for aces and stores them each game
+    """
+    aces_in_hand = []
+    for card in hands['user']:
+        if card[0] == 'Ace':
+            aces_in_hand.append(card)
+
+    for card in aces_in_hand:
+        if card[0] == 'Ace' and len(aces) < len(aces_in_hand):
+            ace_value = input("You have an ace! Would you like it to be 1 or 11? \n")
+            while ace_value not in ['1', '11']:
+                ace_value = input("Please choose either 1 or 11: \n")
+            aces.append(int(ace_value))
+        return sum(aces)
+```
+*Fixed Code*
+```
+def check_aces():
+    """
+    Checks the hand for aces and stores them each game
+    """
+    aces_in_hand = []
+    for card in hands['user']:
+        if card[0] == 'Ace':
+            aces_in_hand.append(card)
+
+    for card in aces_in_hand:
+        if card[0] == 'Ace' and len(aces) < len(aces_in_hand):
+            ace_value = input("You have an ace! Would you like it to be 1 or 11? \n")
+            while ace_value not in ['1', '11']:
+                ace_value = input("Please choose either 1 or 11: \n")
+            aces.append(int(ace_value))
+        else:
+            ace_value = 0
+        return ace_value
+```
+<br>
 
 ### Validator testing
 The code has been run through the [PEP8 python validator](#https://pep8ci.herokuapp.com/). The validator showed some errors. There are error messages for the ACSII art in the title. This does not affect the code for the game and so is fine. Also some print statement lines are flagged as too long. This cannot be helped especially for print statements with logic included.
