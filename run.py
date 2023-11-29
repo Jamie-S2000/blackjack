@@ -159,7 +159,9 @@ def check_aces():
             while ace_value not in ['1', '11']:
                 ace_value = input("Please choose either 1 or 11: \n")
             aces.append(int(ace_value))
-        return sum(aces)
+        else:
+            ace_value = 0
+        return int(ace_value)
 
 
 def dealer_choice(user_total):
