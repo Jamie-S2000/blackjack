@@ -91,6 +91,7 @@ These were not factors in creating this project
 - A Title made of playing cards.
 - The rules.
 - A start game input.
+![start game function](/assets/images/start-game.png)
 
 **reset_game**
 - Resets all variables except the score.
@@ -100,16 +101,19 @@ This function deals cards to the players.
 - It draws two cards from the draw function.
 - Adds these to the hands of the current player.
 - Prints in the console the user's cards and one of the dealer's cards.
+![deal cards function](/assets/images/deal.png)
 
 **hit(player)**
 This function is how the player draws more cards.
 - It runs the draw function and adds it to their hand.
 - It then prints out the new cards and the current hand in the console.
+![hit player function](/assets/images/hit.png)
 
 **user_choice**
 This gives the user a choice of hitting or sticking.
 - When the user hits, the hit function is run then the hand is checked in the check_hand function
 - When the user sticks the user is notified they stuck.
+![player choice function](/assets/images/choice.png)
 
 **check_hand(player)**
 This function checks each player's hand
@@ -123,6 +127,7 @@ This function checks each player's hand
 - This function allows the user to determine the value of each ace they draw.
 - It will not allow any value other than 1 or 11.
 - It stores the value of each ace once chosen.
+![check aces function](/assets/images/aces.png)
 
 **dealer_choice**
 This determines whether the dealer should hit or stick.
@@ -133,6 +138,7 @@ This determines whether the dealer should hit or stick.
 - All three of these must be true or the dealer won't hit.
 - Once one of these is no longer true the dealer will stick if they aren't bust.
 - The total value of the dealer's cards is then returned.
+![dealer choice function](/assets/images/dealer-stick.png)
 
 **compare_hands**
 This compares the hands of the dealer and the user.
@@ -143,11 +149,14 @@ This compares the hands of the dealer and the user.
 - The winner's score is increased
 - The scores are printed to the console.
 - It then runs the play again function.
+![increace score function](/assets/images/scores.png)
 
 **play_again**
 This asks users if they would like to play again
 - If they choose "y" then the game runs another round.
 - If they choose "n" Then the game prints "thanks for playing" and exits.
+![play again functions](/assets/images/play-again-y.png)
+![play again functions](/assets/images/play-again-n.png)
 <br>
 
 ## Future Features and Improvements
