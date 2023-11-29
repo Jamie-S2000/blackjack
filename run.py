@@ -134,8 +134,8 @@ def check_hand(player):
     for cards in hands[player]:
         if cards[0] == 'Ace':
             if player == 'user':
-                ace_value = check_aces()
-                card_values += ace_value
+                check_aces()
+                card_values += sum(aces)
             else:
                 card_values += 11 if card_values < 11 else 1
         else:
